@@ -20,6 +20,6 @@ class login extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('calendar');
+		$this->load->view('profile');
 	}
 }
