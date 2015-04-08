@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</div>
 	<nav>
-		<ul>
+		<ul class="nav nav-pills nav-justified">
 			<li><a href="#" class="color-letter">Perfil</a></li>
 			<li><a href="#" class="color-letter">Inventario</a></li>
 			<li><a href="#" class="color-letter">Drones</a></li>
