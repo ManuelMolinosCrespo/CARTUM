@@ -22,15 +22,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="col-md-3 col-xs-8 col-xs-offset-2 col-md-offset-5 box-login">
 			<div class="margin-box">
 				<div class="form-group">
-					<label for="inputUser" class="color-letter">Usuario</label>
-					<input type="text" class="form-control" id="inputUser" placeholder="Nombre de Usuario">
+					<?= form_open("/login/recibirdatos") ?>
+					<?php
+						$usuario = array(
+							'name' => 'usuario',
+							'placeholder' => 'Ingresa tu DNI'
+						);
+						$password = array(
+							'name' => 'password',
+							'placeholder' => 'Ingresa la contraseña'
+						);
+					?>
+					<?= form_label('DNI Usuario', 'usuario')?>
+					<?= form_input($usuario)?>
 				</div>
 				<br>
 				<div class="form-group">
-					<label for="inputPassword" class="color-letter">Contraseña</label>
-					<input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
+					<?= form_label('Contraseña', 'password')?>
+					<?= form_password($password)?>
 				</div>
-				<input class="btn btn-default button-confirm col-md-offset-4 col-xs-offset-4 color-letter" type="button" value="Entrar">
+				<br>
+				<div class="color-letter">
+					<?= form_submit('', 'Entrar') ?>
+					<?= form_close() ?> 
+				</div>
 			</div>
 		</div>
 	</div>
