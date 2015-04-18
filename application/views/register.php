@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</div>
 	<div class="container">
-		<div class="col-md-3 col-xs-8 col-xs-offset-2 col-md-offset-5">
+		<div class="col-md-5 col-xs-4 col-xs-offset-2 col-md-offset-5">
 			<?php
 				$usuario = array(
 					'name' => 'dni_usuario',
@@ -77,7 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<?= form_input($telefono)?>
 			</div>
 			<br>
-			<div class='btn btn-default button-confirm col-md-offset-4 col-xs-offset-4 color-letter'>
+			<div class='btn btn-default button-confirm col-md-offset-2 col-xs-offset-2 color-letter'>
 				<?= form_submit('', 'Registrarse') ?>
 				<?= form_close() ?> 
 			</div>

@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<?= form_password($password)?>
 				</div>
 				<br>
-				<div class="color-letter">
+				<div class='btn btn-default button-confirm col-md-offset-4 col-xs-offset-4 color-letter'>
 					<?= form_submit('', 'Entrar') ?>
 					<?= form_close() ?> 
 				</div>
