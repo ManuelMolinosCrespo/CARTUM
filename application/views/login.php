@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="col-md-3 col-xs-8 col-xs-offset-2 col-md-offset-5 box-login">
 			<div class="margin-box">
 				<div class="form-group">
-					<?= form_open("/login/recibirdatos") ?>
+					<?= form_open("/login_controller/recibirdatos") ?>
 					<?php
 						$usuario = array(
 							'name' => 'usuario',

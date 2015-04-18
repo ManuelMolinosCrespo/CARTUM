@@ -20,37 +20,67 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<div class="container">
 		<div class="col-md-3 col-xs-8 col-xs-offset-2 col-md-offset-5">
+			<?php
+				$usuario = array(
+					'name' => 'dni_usuario',
+					'placeholder' => 'Ingresa tu DNI'
+				);
+				$nombre = array(
+					'name' => 'nombre',
+					'placeholder' => 'Ingresa tu nombre'
+				);
+				$apellidos = array(
+					'name' => 'apellidos',
+					'placeholder' => 'Ingresa tus apellidos'
+				);
+				$correo = array(
+					'name' => 'correo',
+					'placeholder' => 'Ingresa tu correo electrónico'
+				);
+				$password = array(
+					'name' => 'password',
+					'placeholder' => 'Ingresa tu contraseña'
+				);
+				$telefono = array(
+					'name' => 'telefono',
+					'placeholder' => 'Ingresa tu número de teléfono'
+				);
+			?>
+			<?= form_open("/register_controller/recibirdatos") ?>
 			<div class="form-group">
-				<label for="inputUser" class="color-letter">DNI</label>
-				<input type="text" class="form-control" id="inputUser" placeholder="DNI">
+				<?= form_label('DNI Usuario', 'dni_usuario')?>
+				<?= form_input($usuario)?>
 			</div>
 			<br>
 			<div class="form-group">
-				<label for="inputUser" class="color-letter">Nombre</label>
-				<input type="text" class="form-control" id="inputUser" placeholder="Nombre">
+				<?= form_label('Nombre', 'nombre')?>
+				<?= form_input($nombre)?>
 			</div>
 			<br>
 			<div class="form-group">
-				<label for="inputUser" class="color-letter">Apellidos</label>
-				<input type="text" class="form-control" id="inputUser" placeholder="Apellidos">
+				<?= form_label('Apellidos', 'apellidos')?>
+				<?= form_input($apellidos)?>
 			</div>
 			<br>
 			<div class="form-group">
-				<label for="inputUser" class="color-letter">Correo Electrónico</label>
-				<input type="text" class="form-control" id="inputUser" placeholder="Email">
+				<?= form_label('Correo Electrónico', 'correo')?>
+				<?= form_input($correo)?>
 			</div>
 			<br>
 			<div class="form-group">
-				<label for="inputPassword" class="color-letter">Contraseña</label>
-				<input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
+				<?= form_label('Contraseña', 'contraseña')?>
+				<?= form_password($password)?>
 			</div>
 			<br>
 			<div class="form-group">
-				<label for="inputUser" class="color-letter">Teléfono</label>
-				<input type="text" class="form-control" id="inputUser" placeholder="Telefono de Contacto">
+				<?= form_label('Teléfono', 'telefono')?>
+				<?= form_input($telefono)?>
 			</div>
 			<br>
-			<input class="btn btn-default button-confirm col-md-offset-4 col-xs-offset-4 color-letter" type="button" value="Registrar">
+			<div class='btn btn-default button-confirm col-md-offset-4 col-xs-offset-4 color-letter'>
+				<?= form_submit('', 'Registrarse') ?>
+				<?= form_close() ?> 
+			</div>
 		</div>
 	</div>
 </body>
