@@ -1,29 +1,35 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class register_controller extends CI_Controller {
+class Register_controller extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
+	//Creamos el contructor para cargar el modelo
+	function Register_controller(){
+		
+		parent::__construct();
+		$this->load->model('register_model');
+	}
+	 
+
 	public function index()
 	{
 		$this->load->view('register');
 	}
 
+	//Recibimos los datos de la interfaz y se los pasaremos al modelo que es el encargado de guardarlos en la base de datos 
 	public function recibirdatos() {
-
+		//Pasamos la contraseña a sha1
+		$passSha1 = sha1($this->input->post('password'));
+		$datos = array(
+			'usuario' => $this->input->post('dni_usuario'),
+			'nombre' => $this->input->post('nombre'),
+			'apellidos' => $this->input->post('apellidos'),
+			'correo' => $this->input->post('correo'),
+			'password' => $passSha1,
+			'telefono' => $this->input->post('telefono')
+			);
+			//Llamamos al modelo 
+			$this->register_model->insertarUsuario($datos);
+			$this->load->view('login');
 	}
 }

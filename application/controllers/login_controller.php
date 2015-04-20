@@ -1,34 +1,29 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class login_controller extends CI_Controller {
+class Login_controller extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
-	public function index()
-	{
-<<<<<<< Updated upstream:application/controllers/login_controller.php
-		$this->load->view('login');
+
+	//Creamos el contructor para cargar el modelo
+	function Login_controller(){
+		
+		parent::__construct();
+		$this->load->model('login_model');
 	}
 
-	public function recibirdatos() {
+	public function index()
+	{
 
-=======
-		//Cargamos el login
-		$this->load->view('login');
->>>>>>> Stashed changes:application/controllers/login.php
+}
+	public function recibirdatos() {
+//Recogemos el user, y la pass y la encriptamos
+	$passSha1 = sha1($this->input->post('password'));
+$datos = array(
+			'usuario' => $this->input->post('usuario'),
+			'password' => $passSha1
+			);
+			//Llamamos al modelo 
+			$this->login_model->obtenerPass($datos);
+
 	}
 }
