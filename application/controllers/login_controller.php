@@ -20,10 +20,15 @@ class login_controller extends CI_Controller {
 	 */
 	public function index()
 	{
+<<<<<<< Updated upstream:application/controllers/login_controller.php
 		$this->load->view('login');
 	}
 
 	public function recibirdatos() {
 
+=======
+		//Cargamos el login
+		$this->load->view('login');
+>>>>>>> Stashed changes:application/controllers/login.php
 	}
 }
