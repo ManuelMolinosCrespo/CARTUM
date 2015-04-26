@@ -46,6 +46,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<?= form_submit('', 'Entrar') ?>
 					<?= form_close() ?> 
 				</div>
+				<br>
+				<div class="color-letter">
+					<a href="/register.php">Registrar usuario</a>
+				</div>
 			</div>
 		</div>
 	</div>

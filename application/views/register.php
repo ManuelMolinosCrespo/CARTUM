@@ -41,6 +41,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					'name' => 'password',
 					'placeholder' => 'Ingresa tu contraseña'
 				);
+				$passCheck = array(
+					'name' => 'repeat_password',
+					'placeholder' => 'Repite la contraseña'
+				);
 				$telefono = array(
 					'name' => 'telefono',
 					'placeholder' => 'Ingresa tu número de teléfono'
@@ -70,6 +74,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="form-group">
 				<?= form_label('Contraseña', 'contraseña')?>
 				<?= form_password($password)?>
+			</div>
+			<br>
+			<div class="form-group">
+				<?= form_label('Confirmar Contraseña', 'confirmar_contraseña')?>
+				<?= form_password($passCheck)?>
 			</div>
 			<br>
 			<div class="form-group">
