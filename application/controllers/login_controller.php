@@ -13,17 +13,17 @@ class Login_controller extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->view('login');
+	}
 
-}
 	public function recibirdatos() {
-//Recogemos el user, y la pass y la encriptamos
-	$passSha1 = sha1($this->input->post('password'));
-$datos = array(
+		//Recogemos el user, y la pass y la encriptamos
+		$passSha1 = sha1($this->input->post('password'));
+		$datos = array(
 			'usuario' => $this->input->post('usuario'),
 			'password' => $passSha1
 			);
-			//Llamamos al modelo 
-			$this->login_model->obtenerPass($datos);
-
+		//Llamamos al modelo 
+		$this->login_model->obtenerPass($datos);
 	}
 }
