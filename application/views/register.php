@@ -1,3 +1,4 @@
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
@@ -5,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Login</title>
+	<title>Registro</title>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
       rel="stylesheet" type="text/css">
       <link href="css/style.css"
@@ -84,6 +85,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="form-group">
 				<?= form_label('Teléfono', 'telefono')?>
 				<?= form_input($telefono)?>
+			</div>
+			<div class="form-group">
+				<?= form_label('Foto', 'foto')?>
+				<?= form_upload('foto')?>		
 			</div>
 			<br>
 			<div class='btn btn-default button-confirm col-md-offset-2 col-xs-offset-2 color-letter'>

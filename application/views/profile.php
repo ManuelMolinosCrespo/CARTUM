@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Profile</title>
+	<title>Perfil</title>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
       rel="stylesheet" type="text/css">
       <link href="css/style.css"
@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</nav>
 	<div class="container-fluid">
 		<div class="row col-md-offset-1">
-			<h3 class="color-letter">Información personal</h3>
+			<h3 class="color-letter">Información personal <a href="#" class="color-letter"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></h3>
 			<hr>
 		</div>
 		<div class="row">
