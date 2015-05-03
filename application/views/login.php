@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<br>
 				<div class="color-letter">
-					<a href="/register.php">Registrar usuario</a>
+					<a href="application/views/register.php">Registrar usuario</a>
 				</div>
 			</div>
 		</div>
