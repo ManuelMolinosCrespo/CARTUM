@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		<div class="row">
 			<div class = "col-md-2 col-xs-7 col-md-offset-1 col-xs-offset-2">
-				<img src="img/profile_icon.png" class="img-responsive">
+				<img src="<?php echo base_url(); ?>img/profile_icon.png" class="img-responsive">
 			</div>
 			<div class="col-md-3 col-xs-6 col-xs-offset-4">
 				<br>
