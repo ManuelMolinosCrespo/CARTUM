@@ -21,7 +21,12 @@ class Login_model extends CI_Model {
 		if($query->num_rows()> 0){
 			//Si no ha habia error, llamamos a la funcion que nos compara las contraseñas
 			$resultado = $query->row();
-			$this->compararPass($datos['password'],$resultado);
+			
+			if($this->compararPass($datos['password'],$resultado) == true){
+				return true;
+			}else{
+				return false;
+			}
 		} 
 		else return false;
 	}
@@ -30,11 +35,14 @@ class Login_model extends CI_Model {
 		//Sacamos la contraseña del la bbdd
 		$passBBDD = $passBBDD->Contraseña;
 		if($passUser==$passBBDD){
-			$this->load->view('profile');
+			//Devolvemos verdadero si son correctas
+			return true;
+
 
 			
 		}else{
-			$this->load->view('login');
+			//Devolvemos falso son distintas
+			return false;
 			
 		}
 	}

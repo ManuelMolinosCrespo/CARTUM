@@ -23,7 +23,13 @@ class Login_controller extends CI_Controller {
 			'usuario' => $this->input->post('usuario'),
 			'password' => $passSha1
 			);
-		//Llamamos al modelo 
-		$this->login_model->obtenerPass($datos);
+		//Llamamos al modelo, Si la autentificacion es correcta damos paso a la aplicacion y sino devolvemos al login
+		if($this->login_model->obtenerPass($datos) == true){
+			//Cargamos la pagina principal
+			$this->load->view('profile');
+
+		}else{
+			$this->load->view('login');
+		}
 	}
 }

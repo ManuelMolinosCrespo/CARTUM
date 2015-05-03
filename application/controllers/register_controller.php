@@ -18,8 +18,10 @@ class Register_controller extends CI_Controller {
 
 	//Recibimos los datos de la interfaz y se los pasaremos al modelo que es el encargado de guardarlos en la base de datos 
 	public function recibirdatos() {
-		//Pasamos la contraseña a sha1
-		$passSha1 = sha1($this->input->post('password'));
+		//Si las contraseñas son iguales y todos los campos estan completos pasamos a registrar el usuario, en caso contrario devolvemos la pantalla de error 
+		if($this->compararPass() == true &&  $this->datosCompletos() == true){
+			//Pasamos la contraseña a sha1
+			$passSha1 = sha1($this->input->post('password'));
 		$datos = array(
 			'usuario' => $this->input->post('dni_usuario'),
 			'nombre' => $this->input->post('nombre'),
@@ -31,5 +33,38 @@ class Register_controller extends CI_Controller {
 			//Llamamos al modelo 
 			$this->register_model->insertarUsuario($datos);
 			$this->load->view('login');
+		}else{
+			//Devolvemos la pantalla de error 
+			$this->load->view('register');
+		}
+		
+	}
+	//En esta funcion comprobamos que las dos contraseñas del usuario son iguales.
+	public function compararPass(){
+		$pass = $this->input->post('password');
+		$passRepetida = $this->input->post('repeat_password');
+		if($pass == $passRepetida){
+			//Las dos contraseñas son iguales
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	//Comprobamos que los datos no esten vacios
+	public function datosCompletos(){
+		if($this->input->post('dni_usuario') == ""){
+			return false;
+		}else if($this->input->post('nombre') == ""){
+			return false;
+		}else if($this->input->post('apellidos') == ""){
+			return false;
+		}else if($this->input->post('correo') == ""){
+			return false;
+		}else if($this->input->post('telefono') == ""){
+			return false;
+		}else{
+			return true;
+		}
 	}
 }
