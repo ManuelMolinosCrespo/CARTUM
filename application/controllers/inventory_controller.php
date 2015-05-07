@@ -8,7 +8,8 @@ class Inventory_controller extends CI_Controller {
 	function Inventory_controller(){
 		
 		parent::__construct();
-		// $this->load->model('profile_model');
+		$this->load->model('inventory_model');
+		$this->obtenerdatos();
 	}
 
 	public function index()
@@ -16,14 +17,10 @@ class Inventory_controller extends CI_Controller {
 		$this->load->view('inventory');
 	}
 
-	// public function recibirdatos() {
-	// 	//Recogemos el user, y la pass y la encriptamos
-	// 	$passSha1 = sha1($this->input->post('password'));
-	// 	$datos = array(
-	// 		'usuario' => $this->input->post('usuario'),
-	// 		'password' => $passSha1
-	// 		);
-	// 	//Llamamos al modelo 
-	// 	$this->login_model->obtenerPass($datos);
-	// }
+	public function obtenerdatos() {
+	
+	 	//Llamamos al modelo 
+	 $data['datos'] = $this->inventory_model->obtenerComponentes(); 
+	 $this->load->view('inventory',$data);
+	 }
 }

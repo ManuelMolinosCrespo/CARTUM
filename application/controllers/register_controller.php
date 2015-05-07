@@ -19,6 +19,7 @@ class Register_controller extends CI_Controller {
 	//Recibimos los datos de la interfaz y se los pasaremos al modelo que es el encargado de guardarlos en la base de datos 
 	public function recibirdatos() {
 		//Si las contraseñas son iguales y todos los campos estan completos pasamos a registrar el usuario, en caso contrario devolvemos la pantalla de error 
+		echo "VOY A RECIBIR DATOS";
 		if($this->compararPass() == true &&  $this->datosCompletos() == true){
 			//Pasamos la contraseña a sha1
 			$passSha1 = sha1($this->input->post('password'));
@@ -67,4 +68,34 @@ class Register_controller extends CI_Controller {
 			return true;
 		}
 	}
+	public function do_upload()
+{
+    echo "HOLIII";
+    $config['upload_path'] = './galeria/';
+    $config['allowed_types'] = 'gif|jpg|png';
+    $config['max_size']    = '100';
+    $config['max_width']  = '1024';
+    $config['max_height']  = '768';
+ 	
+    
+    // You can give video formats if you want to upload any video file.
+ 
+// You can give video formats if you want to upload any video file.
+ 
+    $this->load->library('upload', $config);
+ 
+    if ( ! $this->upload->do_upload())
+    {
+        $error = array('error' => $this->upload->display_errors());
+        // uploading failed. $error will holds the errors.
+    }
+    else
+    {
+        $data = array('upload_data' => $this->upload->data());
+ 			echo "Pues intentando guardar tete";
+        // uploading successfull, now do your further actions
+    }
+ }
+
+
 }
