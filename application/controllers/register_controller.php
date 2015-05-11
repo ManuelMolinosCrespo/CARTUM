@@ -61,8 +61,6 @@ class Register_controller extends CI_Controller {
 			return false;
 		}else if($this->input->post('correo') == ""){
 			return false;
-		}else if($this->input->post('telefono') == ""){
-			return false;
 		}else{
 			return true;
 		}

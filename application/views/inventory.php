@@ -36,19 +36,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="row table-responsive col-md-offset-2 col-xs-offset-1 col-md-9">
 			<table class="table table-condensed">
 				<tr>
-					<td>Categoría</td>
-					<td>Nombre</td>
-					<td>Estado</td>
-					<td>Dron Equipado</td>
-					<td>Ficha</td>
+					<td><b>Categoría</b></td>
+					<td><b>Nombre</b></td>
+					<td><b>Estado</b></td>
+					<td><b>ID Dron Equipado</b></td>
+					<td><b>Ficha</b></td>
 				</tr>
 				<?php
-					for ($i=0; $i < $dato; $i++) { 
-						echo "<tr>";
-						for ($j=0; $j < $dato; $j++) { 
-							echo "<td> </td>";
-						}
-						echo "<tr>";
+					foreach ($datos as $item) { 
+				?>
+					<tr>
+					<td> <?=$item -> Categoria?> </td> 
+					<td> <?=$item -> Nombre?> </td> 
+					<td> <?=$item -> Estado?> </td> 
+					<td> <?=$item -> idDronActual?> </td>
+					</tr>
+				<?php
 					}
 				?>
 			</table>

@@ -15,6 +15,11 @@ class Profile_controller extends CI_Controller {
 	{
 		$this->load->view('profile');
 	}
+	
+	public function cargar_editar()
+	{
+		$this->load->view('editProfile');
+	}
 
 	// public function recibirdatos() {
 	// 	//Recogemos el user, y la pass y la encriptamos

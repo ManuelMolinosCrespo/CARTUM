@@ -16,6 +16,11 @@ class Login_controller extends CI_Controller {
 	{
 		$this->load->view('login');
 	}
+	
+	public function cargar_registro()
+	{
+		$this->load->view('register');
+	}
 
 	public function recibirdatos() {
 		//Recogemos el user, y la pass y la encriptamos
