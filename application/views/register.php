@@ -85,18 +85,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="form-group">
 				<?= form_label('Teléfono', 'telefono')?>
 				<?= form_input($telefono)?>
-				<?= form_submit('', 'Registrarse')?>
-				<?= form_close()?> 
 			</div>
-			
 			<br>
 			<div class="form-group">
 				<?=@$error?>
    				<span><?php echo validation_errors(); ?></span>
 				<?=form_open_multipart("register_controller/subirImagen")?>
-    			<input type="file" name="userfile" /><br /><br />
-    			<input type="submit" value="Subir imágenes" />
-				<?=form_close()?>
+				<?= form_label('Foto', 'foto')?>
+				<input type="file" name="userfile" />
+			</div>
+			<br>
+			<div class="form-group">
+    			<?= form_submit('', 'Registrarse')?>
+				<?= form_close()?> 
 			</div>
 		</div>
 	</div>
