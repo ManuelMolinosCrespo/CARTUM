@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					foreach ($datos as $item) { 
 				?>
 					<tr>
-					<td> <?=$item -> Categoria?> </td> 
+					<td> <?=$item -> Nombre?> </td> 
 					<td> <?=$item -> Nombre?> </td> 
 					<td> <?=$item -> Estado?> </td> 
 					<td> <?=$item -> idDronActual?> </td>
