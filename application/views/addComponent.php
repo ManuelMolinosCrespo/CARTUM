@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		<div class="row">
 
-			<?= form_open("/register_controller/recibirdatos") ?>
+			<?= form_open("/addComponent_controller/recibirdatos") ?>
 			
 			<div class = "col-md-2 col-xs-7 col-md-offset-1 col-xs-offset-2">
 				<div class="form-group color-letter">

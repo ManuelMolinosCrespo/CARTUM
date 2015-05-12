@@ -70,6 +70,7 @@ class Register_controller extends CI_Controller {
 	//Esta funcion es la encargada de guardar la imagen en el servidor, y cambiar el nombre de la misma por el dni del user
 	public function subirImagen()
 {
+    echo " ya no me llaman";
     //Seleccionamos la carpeta donde queremos guardarla
     $config['upload_path'] = './galeria/';
     //Seleccionamos los formatos permitidos
