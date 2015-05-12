@@ -30,6 +30,30 @@ class Register_controller extends CI_Controller {
 			'password' => $passSha1,
 			'telefono' => $this->input->post('telefono')
 			);
+
+			 //Seleccionamos la carpeta donde queremos guardarla
+		    $config['upload_path'] = './galeria/';
+		    //Seleccionamos los formatos permitidos
+		    $config['allowed_types'] = 'gif|jpg|png|jpeg';
+		    //Seleccionamos el tamaño y las medidas maximas
+		    $config['max_size']    = '2000';
+		    $config['max_width']  = '2000';
+		    $config['max_height']  = '2000';
+		   	//Cambiamos el nombre original por el dni del user de esta forma nos aseguramos no guardar nunca dos imagenes iguales
+		    $config['file_name'] = $this->input->post('dni_usuario');
+		 
+		 	//Llamamos a la libreria encargada de subir la imagen y realizamos el proceso. Si hubiera algun error se mostraria por pantalla d
+		    $this->load->library('upload', $config);
+		 
+		    if ( ! $this->upload->do_upload())
+		    {
+		        $error = array('error' => $this->upload->display_errors());
+		    }
+		    else
+		    {
+		        $data = array('upload_data' => $this->upload->data());		
+			}
+
 			//Llamamos al modelo 
 			$this->register_model->insertarUsuario($datos);
 			$this->load->view('login');
@@ -67,33 +91,32 @@ class Register_controller extends CI_Controller {
 	}
 	
 
-	//Esta funcion es la encargada de guardar la imagen en el servidor, y cambiar el nombre de la misma por el dni del user
-	public function subirImagen()
-{
-    echo " ya no me llaman";
-    //Seleccionamos la carpeta donde queremos guardarla
-    $config['upload_path'] = './galeria/';
-    //Seleccionamos los formatos permitidos
-    $config['allowed_types'] = 'gif|jpg|png|jpeg';
-    //Seleccionamos el tamaño y las medidas maximas
-    $config['max_size']    = '2000';
-    $config['max_width']  = '2000';
-    $config['max_height']  = '2000';
-   	//Cambiamos el nombre original por el dni del user de esta forma nos aseguramos no guardar nunca dos imagenes iguales
-    $config['file_name'] = $this->input->post('dni_usuario');
+// 	//Esta funcion es la encargada de guardar la imagen en el servidor, y cambiar el nombre de la misma por el dni del user
+// 	public function subirImagen()
+// {
+//     //Seleccionamos la carpeta donde queremos guardarla
+//     $config['upload_path'] = './galeria/';
+//     //Seleccionamos los formatos permitidos
+//     $config['allowed_types'] = 'gif|jpg|png|jpeg';
+//     //Seleccionamos el tamaño y las medidas maximas
+//     $config['max_size']    = '2000';
+//     $config['max_width']  = '2000';
+//     $config['max_height']  = '2000';
+//    	//Cambiamos el nombre original por el dni del user de esta forma nos aseguramos no guardar nunca dos imagenes iguales
+//     $config['file_name'] = $this->input->post('dni_usuario');
  
- 	//Llamamos a la libreria encargada de subir la imagen y realizamos el proceso. Si hubiera algun error se mostraria por pantalla d
-    $this->load->library('upload', $config);
+//  	//Llamamos a la libreria encargada de subir la imagen y realizamos el proceso. Si hubiera algun error se mostraria por pantalla d
+//     $this->load->library('upload', $config);
  
-    if ( ! $this->upload->do_upload())
-    {
-        $error = array('error' => $this->upload->display_errors());
-    }
-    else
-    {
-        $data = array('upload_data' => $this->upload->data());
+//     if ( ! $this->upload->do_upload())
+//     {
+//         $error = array('error' => $this->upload->display_errors());
+//     }
+//     else
+//     {
+//         $data = array('upload_data' => $this->upload->data());
  			
- }
-}
+//  }
+// }
 
 }

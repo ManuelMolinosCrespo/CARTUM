@@ -49,8 +49,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					'name' => 'telefono',
 					'placeholder' => 'Ingresa tu número de teléfono'
 				);
+				$foto = array(
+					'name' => 'foto'
+				);
 			?>
-			<?= form_open("/register_controller/recibirdatos") ?>
+			<?= form_open_multipart("/register_controller/recibirdatos") ?>
 			<div class="form-group">
 				<?= form_label('DNI Usuario', 'dni_usuario')?>
 				<?= form_input($usuario)?>
@@ -87,11 +90,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<br>
 			<div class="form-group">
-				<?=@$error?>
-   				<span><?php echo validation_errors(); ?></span>
-				<?=form_open_multipart("register_controller/subirImagen")?>
 				<?= form_label('Foto', 'foto')?>
-				<input type="file" name="userfile" />
+				<?= form_upload($foto)?>
 			</div>
 			<br>
 			<div class="form-group">

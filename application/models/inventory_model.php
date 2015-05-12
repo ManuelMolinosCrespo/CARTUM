@@ -12,7 +12,7 @@ class Inventory_model extends CI_Model {
 
 	public function obtenerComponentes(){
 	 //Realizamos al aconsulta de los datos 
-      $this->db->select('k.Nombre,c.Nombre,c.Estado,c.idDronActual,c.idComponente');
+      $this->db->select('k.Nombre_categoria,c.Nombre_componente,c.Estado_componente,c.idDronActual,c.idComponente');
       $this->db->from('Componentes c');
       $this->db->join('Categorias_Componentes k', 'c.categoria = k.idCategoria');
       $query= $this->db->get();

@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="es">
 <head>
 	<meta charset="utf-8">
-	<title>Inventario</title>
+	<title>Ficha Componente</title>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
       rel="stylesheet" type="text/css">
       <link href="<?php echo base_url(); ?>css/style.css"
@@ -30,31 +30,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</nav>
 	<div class="container-fluid">
 		<div class="row col-md-offset-1">
-			<h3 class="color-letter">Inventario</h3>
+			<h3 class="color-letter">Ficha Componente</h3>
 			<hr>
 		</div>
 		<div class="row table-responsive col-md-offset-2 col-xs-offset-1 col-md-9">
 			<table class="table table-condensed">
-				<tr>
-					<td><b>Categoría</b></td>
-					<td><b>Nombre</b></td>
-					<td><b>Estado</b></td>
-					<td><b>ID Dron Equipado</b></td>
-					<td><b>Ficha</b></td>
-				</tr>
-				<?php
-					foreach ($datos as $item) { 
-				?>
-					<tr>
-					<td> <?=$item -> Nombre_categoria?> </td> 
-					<td> <?=$item -> Nombre_componente?> </td> 
-					<td> <?=$item -> Estado_componente?> </td> 
-					<td> <?=$item -> idDronActual?> </td>
-					<td> <a href="<?php echo base_url(); ?>index.php/fichaComponente_controller/index" class="color-letter"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a> </td>
-					</tr>
-				<?php
-					}
-				?>
+			<?php
+				foreach ($datos as $item) { 
+			?>
+				<td>
+				<tr><b>Nombre</b></tr>
+				<tr> <?=$item -> Nombre_componente?> </tr>
+				<tr><b>Fabricante</b></tr>
+				<tr> <?=$item -> Fabricante_componente?> </tr>
+				<tr><b>Categoría</b></tr>
+				<tr> <?=$item -> Nombre_categoria?> </tr>
+				<tr><b>Prestaciones</b></tr>
+				<tr> <?=$item -> Prestaciones_componente?> </tr>
+				<tr><b>Peso</b></tr>
+				<tr> <?=$item -> Peso_componente?> </tr>
+				<tr><b>Horas de vuelo</b></tr>
+				<tr> <?=$item -> Horas_Vuelo_componente?> </tr>
+				<tr><b>Estado</b></tr>
+				<tr> <?=$item -> Estado_componente?> </tr>
+				<tr><b>Fecha de Compra</b></tr>
+				<tr> <?=$item -> Fecha_Compra?> </tr>
+				<tr><b>Fecha de Retirada</b></tr>
+				<tr> <?=$item -> Fecha_Retirada?> </tr>
+				<tr><b>ID Dron Equipado</b></tr>
+				<tr> <?=$item -> idDronActual?> </tr>
+				<tr><b>Activo o Inactivo</b></tr>
+				<tr> <?=$item -> Activo/Inactivo?> </tr>
+				<tr><b>Número de Vuelos Realizados</b></tr>
+				<tr> <?=$item -> Numero_Vuelo_Realizados_componente?> </tr>
+				</td>
+			<?php
+				}
+			?>
 			</table>
 		</div>
 	</div>
