@@ -14,7 +14,6 @@ class Inventory_controller extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('inventory');
 	}
 
 	public function obtenerdatos() {
@@ -22,5 +21,5 @@ class Inventory_controller extends CI_Controller {
 	 	//Llamamos al modelo 
 	 $data['datos'] = $this->inventory_model->obtenerComponentes(); 
 	 $this->load->view('inventory',$data);
-	 }
+	}
 }
