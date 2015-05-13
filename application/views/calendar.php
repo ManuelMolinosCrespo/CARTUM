@@ -20,8 +20,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<nav>
 		<ul class="nav nav-pills nav-justified">
-			<li><a href="#" class="color-letter">Perfil</a></li>
-			<li><a href="#" class="color-letter">Inventario</a></li>
+			<li><a href="<?php echo base_url(); ?>index.php/profile_controller/index" class="color-letter">Perfil</a></li>
+			<li><a href="<?php echo base_url(); ?>index.php/inventory_controller/index" class="color-letter">Inventario</a></li>
 			<li><a href="#" class="color-letter">Drones</a></li>
 			<li><a href="#" class="color-letter">Mantenimiento</a></li>
 			<li><a href="#" class="color-letter">Normativa</a></li>

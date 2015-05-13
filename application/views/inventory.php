@@ -20,8 +20,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<nav>
 		<ul class="nav nav-pills nav-justified">
-			<li><a href="#" class="color-letter">Calendario</a></li>
-			<li><a href="#" class="color-letter">Perfil</a></li>
+			<li><a href="<?php echo base_url(); ?>index.php/calendar_controller/index" class="color-letter">Calendario</a></li>
+			<li><a href="<?php echo base_url(); ?>index.php/profile_controller/index" class="color-letter">Perfil</a></li>
 			<li><a href="#" class="color-letter">Drones</a></li>
 			<li><a href="#" class="color-letter">Mantenimiento</a></li>
 			<li><a href="#" class="color-letter">Normativa</a></li>
@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</nav>
 	<div class="container-fluid">
 		<div class="row col-md-offset-1">
-			<h3 class="color-letter">Inventario</h3>
+			<h3 class="color-letter">Inventario <a href="<?php echo base_url(); ?>index.php/addComponent_controller/index" class="color-letter"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></h3>
 			<hr>
 		</div>
 		<div class="row table-responsive col-md-offset-2 col-xs-offset-1 col-md-9">
