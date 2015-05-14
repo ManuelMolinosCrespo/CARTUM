@@ -1,3 +1,4 @@
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -23,4 +24,10 @@ class FichaComponente_controller extends CI_Controller {
 		//Llamamos al modelo 
 	 	$this->fichaComponente_model->obtenerFicha($id);
 	 }
+
+	 //Esta funcion se llama si se desea elimar un usuario 
+	public function eliminarComponente(){
+		$id => $this->input->post('id')
+		$this->fichaComponente_model->eliminarComponente($id);
+	}
 	}

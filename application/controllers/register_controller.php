@@ -31,7 +31,7 @@ class Register_controller extends CI_Controller {
 			'telefono' => $this->input->post('telefono')
 			);
 
-			 //Seleccionamos la carpeta donde queremos guardarla
+			 //Seleccionamos la carpeta donde queremos guardar la imagen
 		    $config['upload_path'] = './galeria/';
 		    //Seleccionamos los formatos permitidos
 		    $config['allowed_types'] = 'gif|jpg|png|jpeg';
