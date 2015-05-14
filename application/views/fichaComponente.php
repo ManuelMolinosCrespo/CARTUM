@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<tr><b>ID Dron Equipado</b></tr>
 				<tr> <?=$item -> idDronActual?> </tr>
 				<tr><b>Activo o Inactivo</b></tr>
-				<tr> <?=$item -> Activo/Inactivo?> </tr>
+				<tr> <?=$item -> Activo_Inactivo?> </tr>
 				<tr><b>Número de Vuelos Realizados</b></tr>
 				<tr> <?=$item -> Numero_Vuelos_Realizados_componente?> </tr>
 				</td>
