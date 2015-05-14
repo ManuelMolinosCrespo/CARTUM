@@ -27,6 +27,7 @@ class EditProfile_controller extends CI_Controller {
 	 		);
 		//Llamamos al modelo 
 	 	$this->editProfile_model->actualizarUsuario($datos);
+		$this->load->view('profile');
 	 }else{
 	 	//Devolvemos la pantalla de error 
 			$this->load->view('editProfile');
