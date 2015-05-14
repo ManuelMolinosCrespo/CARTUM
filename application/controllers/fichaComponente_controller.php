@@ -14,7 +14,6 @@ class FichaComponente_controller extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('fichaComponente');
 	}
 
 	 public function recibirdatos() {
@@ -22,12 +21,14 @@ class FichaComponente_controller extends CI_Controller {
 	 	$id = $this->input->post('id');
 		
 		//Llamamos al modelo 
-	 	$this->fichaComponente_model->obtenerFicha($id);
+	 	$data['datos'] = $this->fichaComponente_model->obtenerFicha($id);
+		
+		$this->load->view('fichaComponente',$data);
 	 }
 
 	 //Esta funcion se llama si se desea elimar un usuario 
 	public function eliminarComponente(){
-		$id => $this->input->post('id')
+		$id = $this->input->post('id');
 		$this->fichaComponente_model->eliminarComponente($id);
 	}
 	}
