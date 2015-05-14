@@ -33,42 +33,75 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<h3 class="color-letter">Ficha Componente</h3>
 			<hr>
 		</div>
-		<div class="row table-responsive col-md-offset-2 col-xs-offset-1 col-md-9">
-			<table class="table table-condensed">
 			<?php
 				foreach ($datos as $item) { 
 			?>
-				<td>
-				<tr><b>Nombre</b></tr>
-				<tr> <?=$item -> Nombre_componente?> </tr>
-				<tr><b>Fabricante</b></tr>
-				<tr> <?=$item -> Fabricante_componente?> </tr>
-				<tr><b>Categoría</b></tr>
-				<tr> <?=$item -> Nombre_categoria?> </tr>
-				<tr><b>Prestaciones</b></tr>
-				<tr> <?=$item -> Prestaciones_componente?> </tr>
-				<tr><b>Peso</b></tr>
-				<tr> <?=$item -> Peso_componente?> </tr>
-				<tr><b>Horas de vuelo</b></tr>
-				<tr> <?=$item -> Horas_Vuelo_componente?> </tr>
-				<tr><b>Estado</b></tr>
-				<tr> <?=$item -> Estado_componente?> </tr>
-				<tr><b>Fecha de Compra</b></tr>
-				<tr> <?=$item -> Fecha_Compra?> </tr>
-				<tr><b>Fecha de Retirada</b></tr>
-				<tr> <?=$item -> Fecha_Retirada?> </tr>
-				<tr><b>ID Dron Equipado</b></tr>
-				<tr> <?=$item -> idDronActual?> </tr>
-				<tr><b>Activo o Inactivo</b></tr>
-				<tr> <?=$item -> Activo_Inactivo?> </tr>
-				<tr><b>Número de Vuelos Realizados</b></tr>
-				<tr> <?=$item -> Numero_Vuelos_Realizados_componente?> </tr>
-				</td>
-			<?php
-				}
-			?>
-			</table>
+			<div class="col-md-2 col-xs-4 col-sm-3 col-md-offset-1 col-xs-offset-1">
+				<b class="color-letter row">Nombre</b>
+				<br>
+				<?=$item -> Nombre_componente?>
+				<br>				
+				<b class="color-letter row">Fabricante</b>
+				<br>	
+				<?=$item -> Fabricante_componente?>
+				<br>	
+				<b class="color-letter row">Categoría</b>
+				<br>
+				<?=$item -> Nombre_categoria?>
+				<br>
+				<b class="color-letter row">Prestaciones</b>
+				<br>
+				<?=$item -> Prestaciones_componente?>
+				<br>
+				<b class="color-letter row">Peso</b>
+				<br>
+				<?=$item -> Peso_componente?>
+				<br>
+				<b class="color-letter row">Horas de vuelo</b>
+				<br>
+				<?=$item -> Horas_Vuelo_componente?>		
+			</div>
+			<div class="col-md-3 col-xs-7 col-sm-3 col-xs-offset-1 col-sm-offset-3 col-md-offset-3">
+				<b class="color-letter row">Estado</b>
+				<br>
+				<?=$item -> Estado_componente?> 
+				<br>
+				<b class="color-letter row">Fecha de Compra</b>
+				<br>
+				<?=$item -> Fecha_Compra?>
+				<br>
+				<b class="color-letter row">Fecha de Retirada</b>
+				<br>
+				<?=$item -> Fecha_Retirada?>
+				<br>
+				<b class="color-letter row">ID Dron Equipado</b>
+				<br>
+				<?=$item -> idDronActual?>
+				<br>
+				<b class="color-letter row">Activo o Inactivo</b>
+				<br>	
+				<?=$item -> Activo_Inactivo?>
+				<br>
+				<b class="color-letter row">Número de Vuelos Realizados</b>
+				<br>
+				<?=$item -> Numero_Vuelos_Realizados_componente?>
+			</div>			
+			
+	</div>
+	<br>
+	<br>
+	<div class="row container-fluid">
+		<div class="row col-md-3 col-xs-7 col-sm-3 col-md-offset-1 col-xs-offset-1">
+			<h4><a class="color-letter" href="<?php echo base_url(); ?>index.php/inventory_controller/index"><span class="
+glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span> <u>Inventario</u> </a></h4>
+		</div>
+		<div class="row col-md-3 col-xs-7 col-sm-3 col-md-offset-1 col-xs-offset-1 col-sm-offset-3 col-md-offset-3">
+			<h4><a class="color-letter" href="<?php echo base_url(); ?>index.php/fichaComponente_controller/eliminarComponente/<?php echo $item -> idComponente?>"><span class="
+glyphicon glyphicon-trash" aria-hidden="true"></span> <u>Eliminar Componente</u> </a></h4>
 		</div>
 	</div>
+	<?php
+		}
+	?>
 </body>
 </html>

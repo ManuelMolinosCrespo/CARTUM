@@ -10,6 +10,7 @@ class FichaComponente_controller extends CI_Controller {
 		
 		parent::__construct();
 		 $this->load->model('fichaComponente_model');
+		 $this->load->model('inventory_model');
 	}
 
 	public function index()
@@ -26,9 +27,16 @@ class FichaComponente_controller extends CI_Controller {
 		$this->load->view('fichaComponente',$data);
 	 }
 
+	public function obtenerdatos() {
+	 	//Llamamos al modelo 
+	 $data['datos'] = $this->inventory_model->obtenerComponentes(); 
+	 $this->load->view('inventory',$data);
+	}
+
 	 //Esta funcion se llama si se desea elimar un usuario 
 	public function eliminarComponente(){
 		$id = $this->uri->segment(4);
 		$this->fichaComponente_model->eliminarComponente($id);
+		$this->obtenerdatos();
 	}
-	}
+}

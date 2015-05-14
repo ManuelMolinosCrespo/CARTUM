@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</nav>
 	<div class="container-fluid">
 		<div class="row col-md-offset-1">
-			<h3 class="color-letter">Información personal <a href="<?php echo base_url(); ?>index.php/editProfile_controller/index" class="color-letter"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></h3>
+			<h3 class="color-letter">Información personal <a href="<?php echo base_url(); ?>index.php/editProfile_controller/index" class="color-letter"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></h3>
 			<hr>
 		</div>
 		<div class="row">

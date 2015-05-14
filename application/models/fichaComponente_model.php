@@ -29,6 +29,6 @@ class FichaComponente_model extends CI_Model {
 
 	function eliminarComponente($id){
 		$this->db->where('idComponente',$id);
-		return $this->db->delete('Componentes');
+		return $this->db->delete('componentes');
 	}
 }
