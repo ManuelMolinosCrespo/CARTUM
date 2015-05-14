@@ -12,10 +12,10 @@ class FichaComponente_model extends CI_Model {
 
 	public function obtenerFicha($id){
 	 //Realizamos la consulta de los datos 
-      $this->db->select('k.Nombre_componente,c.Nombre_categoria,c.Fabricante_componente,c.Prestaciones_componente,c.Peso_componente,c.Horas_Vuelo_componente,c.Fecha_Compra,c.Fecha_Retirada,c.Numero_vuelos_Realizados_componente,c.Estado_componente,c.idDronActual,c.idComponente');
+      $this->db->select('k.Nombre_categoria,c.Nombre_componente,c.Fabricante_componente,c.Prestaciones_componente,c.Peso_componente,c.Horas_Vuelo_componente,c.Fecha_Compra,c.Fecha_Retirada,c.Numero_Vuelos_Realizados_componente,c.Activo_Inactivo,c.Estado_componente,c.idDronActual,c.idComponente');
       $this->db->from('Componentes c');
       $this->db->join('Categorias_Componentes k', 'c.categoria = k.idCategoria');
-      $this->db->where('idComponente = '+$id);
+      $this->db->where('idComponente = 0 ');
       $query= $this->db->get();
 		if($query->num_rows()> 0){
 			//Si no ha habia error, llamamos a la funcion que nos compara las contraseñas
