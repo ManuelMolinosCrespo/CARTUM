@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<td> <?=$item -> Nombre_componente?> </td> 
 					<td> <?=$item -> Estado_componente?> </td> 
 					<td> <?=$item -> idDronActual?> </td>
-					<td> <a href="<?php echo base_url(); ?>index.php/fichaComponente_controller/index" class="color-letter"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a> </td>
+					<td> <a href="<?php echo base_url(); ?>index.php/fichaComponente_controller/recibirdatos/<?php echo $item -> idComponente?>" class="color-letter"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a> </td>
 					</tr>
 				<?php
 					}
