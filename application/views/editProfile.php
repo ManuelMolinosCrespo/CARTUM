@@ -68,6 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<?= form_submit('', 'Modificar') ?>
 				<?= form_close() ?> 
 			</div>
+			<a href="<?php echo base_url(); ?>index.php/profile_controller/index" class="color-letter"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Volver atrás</a>
 		</div>
 	</div>
 </body>

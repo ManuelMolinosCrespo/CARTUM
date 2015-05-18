@@ -17,7 +17,7 @@ class FichaComponente_controller extends CI_Controller {
 	{
 	}
 
-	 public function recibirdatos() {
+	public function recibirdatos() {
 		//Recogemos el id y lo pasamos al modelo
 		$id = $this->uri->segment(4);
 		

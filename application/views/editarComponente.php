@@ -43,10 +43,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<?= form_upload('foto')?>			
 				</div>
 				<div class="form-group color-letter">
-					<?= form_label('ID del Componente', 'idComponente')?>
-					<?= form_input('idComponente')?>			
-				</div>
-				<div class="form-group color-letter">
 					<?= form_label('Nombre del Comp.', 'nombre')?>
 					<?= form_input('nombre')?>			
 				</div>
@@ -68,17 +64,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<?= form_label('Peso del Componente', 'peso')?>
 					<?= form_input('peso')?>		
 				</div>
-				<br>
 				<div class="form-group color-letter">
 					<?= form_label('Estado del Componente', 'estado')?>
 					<?= form_input('estado')?>		
 				</div>
-				<br>
 				<div class="form-group color-letter">
 					<?= form_label('Fecha de la Compra', 'fechaCompra')?>
 					<?= form_input('fechaCompra')?>		
 				</div>
-				<br>
 				<div class="form-group color-letter">
 					<?= form_label('Fecha de su Retirada', 'fechaRetirada')?>
 					<?= form_input('fechaRetirada')?>	
@@ -90,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<br>
 				<br>
-				<a href="<?php echo base_url(); ?>index.php/inventory_controller/index" class="color-letter"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Volver atrás</a>
+				<a href="<?php echo base_url(); ?>index.php/fichaComponente_controller/index" class="color-letter"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Volver atrás</a>
 			</div>
 		</div>
 	</div>

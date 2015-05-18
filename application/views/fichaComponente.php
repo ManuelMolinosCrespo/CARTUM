@@ -29,13 +29,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</ul>
 	</nav>
 	<div class="container-fluid">
+		<?php
+			foreach ($datos as $item) { 
+		?>
 		<div class="row col-md-offset-1">
-			<h3 class="color-letter">Ficha Componente</h3>
+			<h3 class="color-letter">Ficha Componente <a href="<?php echo base_url(); ?>index.php/editarComponente_controller/recibirdatos/<?php echo $item -> idComponente?>" class="color-letter"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></h3>
 			<hr>
 		</div>
-			<?php
-				foreach ($datos as $item) { 
-			?>
 			<div class="col-md-2 col-xs-4 col-sm-3 col-md-offset-1 col-xs-offset-1">
 				<b class="color-letter row">Nombre</b>
 				<br>
@@ -85,8 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<b class="color-letter row">Número de Vuelos Realizados</b>
 				<br>
 				<?=$item -> Numero_Vuelos_Realizados_componente?>
-			</div>			
-			
+			</div>					
 	</div>
 	<br>
 	<br>

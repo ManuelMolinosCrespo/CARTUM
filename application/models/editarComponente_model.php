@@ -12,7 +12,7 @@ class EditarComponente_model extends CI_Model {
 	function actualizarComponente($datos){
 
 		//Actualizamos en funcion del id del componente
-		$this->db->where('idComponente',$datos['id'];
+		$this->db->where('idComponente',$datos['id']);
         $this->db->update('Componentes', $datos); 
 
 	}
