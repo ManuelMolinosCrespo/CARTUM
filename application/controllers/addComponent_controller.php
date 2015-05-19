@@ -19,6 +19,7 @@ class AddComponent_controller extends CI_Controller {
 	 public function recibirdatos() {
 		//Recogemos los datos introducccidos por el usuario en un array y posteriormente los pasamos al modelo para guardarlos en la bbdd
 	 	$datos = array(
+	 		'idComponente' => $this->input->post('idComponente'),
 	 		'nombre' => $this->input->post('nombre'),
 			'fabricante' => $this->input->post('fabricante'),
 			'categoria' => $this->input->post('categoria'),
