@@ -37,8 +37,6 @@ class FichaComponente_controller extends CI_Controller {
 	public function eliminarComponente(){
 		$id = $this->uri->segment(3);
 		$this->fichaComponente_model->eliminarComponente($id);
-		echo  "HOLA";
-		echo $id;
 		$this->obtenerdatos();
 	}
 }
