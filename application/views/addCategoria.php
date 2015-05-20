@@ -22,11 +22,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="col-md-5 col-xs-4 col-xs-offset-2 col-md-offset-5">
 			<?php
 				$categoria = array(
-					'name' => 'dni_usuario',
-					'placeholder' => 'Ingresa tu DNI'
+					'name' => 'nombre_categoria',
+					'placeholder' => 'Ingrese la nueva categoria'
 				);
 			?>
-			<?= form_open("/addCategoria_controller/recibirdatos") ?>
+			<?= form_open("/Categoria_controller/insertarDatos") ?>
 			<div class="form-group">
 				<?= form_label('Nombre Categoria', 'nombre_categoria')?>
 				<?= form_input($categoria)?>
