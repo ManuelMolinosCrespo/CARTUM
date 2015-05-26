@@ -46,6 +46,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<p class="color-letter row">Teléfono</p>
 			</div>
 		</div>
+		<div class="col-md-offset-7 col-xs-offset-3 color-letter">
+			<h4><a class="color-letter" href="<?php echo base_url(); ?>index.php/profile_controller/eliminarPerfil/ "><span class="
+			glyphicon glyphicon-trash" aria-hidden="true"></span> <u>Eliminar Usuario</u> </a></h4>
+		</div>
+		<br>
+		<br>
 		<input class="row btn btn-default button-confirm col-md-offset-7 col-xs-offset-3 color-letter" type="button" value="Historial Tareas y Vuelos">
 	</div>
 </body>

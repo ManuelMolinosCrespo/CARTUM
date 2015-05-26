@@ -19,7 +19,7 @@ class FichaComponente_controller extends CI_Controller {
 
 	public function recibirdatos() {
 		//Recogemos el id y lo pasamos al modelo
-		$id = $this->uri->segment(4);
+		$id = $this->uri->segment(3);
 		
 		//Llamamos al modelo 
 	 	$data['datos'] = $this->fichaComponente_model->obtenerFicha($id);

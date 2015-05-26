@@ -17,7 +17,7 @@ class Inventory_model extends CI_Model {
       $this->db->join('Categorias_Componentes k', 'c.categoria = k.idCategoria');
       $query= $this->db->get();
 		if($query->num_rows()> 0){
-			//Si no ha habia error, llamamos a la funcion que nos compara las contraseñas
+			
 			$resultado = $query->result();
 			
 			return $resultado;
