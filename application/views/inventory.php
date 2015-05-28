@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="row col-md-offset-1">
 		<br>
 		<br>
-		<h4><a href="<?php echo base_url(); ?>index.php/addCategoria_controller/index" class="color-letter"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Añadir Categoría</a></h4>
+		<h4><a href="<?php echo base_url(); ?>index.php/categoria_controller/index" class="color-letter"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Añadir Categoría</a></h4>
 	</div>
 </body>
 </html>

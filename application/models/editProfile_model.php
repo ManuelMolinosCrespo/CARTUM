@@ -21,4 +21,22 @@ class EditProfile_model extends CI_Model {
 		$this->db->where('DNI_Usuario',$id);
 		return $this->db->delete('usuarios');
 	}
+
+	function mostrarUsuario(){
+		//Sacamos los datos del usuario que esta registrado
+		 //Realizamos la consulta de los datos 
+      $this->db->select('Nombre,Apellidos,Correo_Electronico,Telefono');
+      $this->db->from('usuarios');
+      $this->db->where('DNI_Usuario',$this->session->userdata('usuario'));
+      $query= $this->db->get();
+		if($query->num_rows()> 0){
+			
+			$resultado = $query->result();
+			
+			return $resultado;
+			}else{
+				return false;
+			}
+	}
+	
 }

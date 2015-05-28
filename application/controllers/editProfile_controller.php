@@ -50,7 +50,14 @@ class EditProfile_controller extends CI_Controller {
 	}
 	//Esta funcion se llama si se desea elimar un usuario 
 	public function borrarUsuario(){
-		$id = $this->input->post('Dni_Usuario');
+		//Llamamos a la variable de sesion correspondiente del usuario para poder eliminarlo
+		$id = $this->session->userdata('usuario');
 		$this->editProfile_model->eliminarUsuario($id);
+	}
+
+	//Mostramos los datos del usuario actual
+
+	public function mostrarDatosUser(){
+		$data['datos'] = $this->editProfile_model->mostrarUsuario(); 
 	}
 }

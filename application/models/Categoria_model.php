@@ -23,4 +23,20 @@ class Categoria_model extends CI_Model {
 		$this->db->where('Nombre_categoria',$arrayNombre);
 		return $this->db->delete('Categorias_Componentes');
 	}
+
+	function mostrarCategoria(){
+	  $this->db->select('Nombre_categoria');
+	  $this->db->from('Categorias_Componentes');
+      $query= $this->db->get();
+		if($query->num_rows()> 0){
+			
+			$resultado = $query->result();
+			
+			return $resultado;
+			}else{
+				return false;
+			}
+	}
+	
+	
 }

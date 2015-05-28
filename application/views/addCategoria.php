@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					'placeholder' => 'Ingrese la nueva categoria'
 				);
 			?>
-			<?= form_open("/Categoria_controller/insertarDatos") ?>
+			<?= form_open("/categoria_controller/insertarDatos") ?>
 			<div class="form-group">
 				<?= form_label('Nombre Categoria', 'nombre_categoria')?>
 				<?= form_input($categoria)?>

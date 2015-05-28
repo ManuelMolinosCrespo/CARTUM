@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 		<div class="col-md-offset-7 col-xs-offset-3 color-letter">
-			<h4><a class="color-letter" href="<?php echo base_url(); ?>index.php/profile_controller/eliminarPerfil/ "><span class="
+			<h4><a class="color-letter" href="<?php echo base_url(); ?>index.php/editProfile_controller/borrarUsuario/ "><span class="
 			glyphicon glyphicon-trash" aria-hidden="true"></span> <u>Eliminar Usuario</u> </a></h4>
 		</div>
 		<br>

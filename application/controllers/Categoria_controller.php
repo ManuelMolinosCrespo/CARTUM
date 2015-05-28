@@ -30,4 +30,8 @@ class Categoria_controller extends CI_Controller {
 		//Llamamos al modelo para insertarlo
 		$this->Categoria_model->eliminarCategoria($nombre);
 	 }
+
+	 public function mostrarCategoria(){
+	 	$data['categorias'] = $this->categoria_model->mostrarUsuario(); 
+	 }
 }
