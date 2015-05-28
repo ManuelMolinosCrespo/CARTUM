@@ -8,33 +8,34 @@ class Categoria_controller extends CI_Controller {
 	function Categoria_controller(){
 		
 		parent::__construct();
-		 $this->load->model('Categoria_model');
+		 $this->load->model('categoria_model');
 		 $this->load->model('inventory_model');	
 	}
 
 	public function index()
 	{
-		$this->load->view('addCategoria');
+		$this->mostrarCategoria();
 	}
 
 	public function insertarDatos() {
 		//Obtenemos el nombre de la categoria de la vista
 		$nombre = $this->input->post('nombre_categoria');
 		//Llamamos al modelo para insertarlo
-		$this->Categoria_model->insertarCategoria($nombre);
+		$this->categoria_model->insertarCategoria($nombre);
 		$this->obtenerdatos();
 	}
 
 	public function eliminarDatos() {
 		//Obtenemos el nombre de la categoria de la vista
-		$nombre = $this->input->post('nombre_categoria');
+		$nombre = $this->input->post('categoria');
 		//Llamamos al modelo para insertarlo
-		$this->Categoria_model->eliminarCategoria($nombre);
+		$this->categoria_model->eliminarCategoria($nombre);
 		$this->obtenerdatos();
 	}
 
 	public function mostrarCategoria(){
 	 	$data['categorias'] = $this->categoria_model->mostrarCategoria(); 
+	 	$this->load->view('addCategoria',$data);
 	}
 
 	public function obtenerdatos() {	

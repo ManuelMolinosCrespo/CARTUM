@@ -20,22 +20,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<div class="container">
 		<div class="col-md-5 col-xs-4 col-xs-offset-2 col-md-offset-5">
-			<?php
-				$categoria = array(
-					'name' => 'nombre_categoria',
-					'placeholder' => 'Ingrese la nueva categoria'
-				);
-			?>
 			<?= form_open("/categoria_controller/insertarDatos") ?>
 			<div class="form-group">
-				<?= form_label('Nombre Categoria', 'nombre_categoria')?>
-				<?= form_input($categoria)?>
+				<?= form_label('Nombre Categoria')?>
+				<?= form_input('nombre_categoria')?>
 			</div>
 			<br>
 			<div class="form-group">
     			<?= form_submit('', 'Añadir')?>
+			</div>
+			<?= form_close()?> 
+			<br>
+			<?= form_open("/categoria_controller/eliminarDatos") ?>
+			<div class="form-group">
+			<?php
+		        if(!empty($categorias)) {
+		           	foreach ($categorias as $item) {
+	             		$desplegable[$item -> idCategoria] = $item -> Nombre_categoria;
+                	}
+                }
+                if(!empty($desplegable)) {
+            ?>
+            <?= form_dropdown('categoria', $desplegable)?>
+           	</div>
+			<br>
+			<div class="form-group">
+    			<?= form_submit('', 'Eliminar')?>
 				<?= form_close()?> 
 			</div>
+            <?php
+                }
+			?>	
+			<br>
 			<br>
 			<a href="<?php echo base_url(); ?>index.php/inventory_controller/index" class="color-letter"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Volver atrás</a>
 		</div>
