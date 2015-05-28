@@ -25,9 +25,7 @@ class Categoria_model extends CI_Model {
 	}
 
 	function mostrarCategoria(){
-	  $this->db->select('Nombre_categoria');
-	  $this->db->from('Categorias_Componentes');
-      $query= $this->db->get();
+	$query = $this->db->query("select idCategoria, Nombre_categoria From categorias_componentes WHERE idCategoria NOT IN (select Categoria FROM componentes)"); 
 		if($query->num_rows()> 0){
 			
 			$resultado = $query->result();
