@@ -55,8 +55,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<?= form_input('fabricante')?>		
 				</div>
 				<div class="form-group color-letter">
-					<?= form_label('Categoría del Comp.', 'categoria')?>
-					<?= form_input('categoria')?>		
+					<?= form_label('Categoría del Componente', 'categoria')?>
+					<br>
+					<?php
+			                if(!empty($categorias)) {
+			                	foreach ($categorias as $item) {
+			                		$desplegable[$item -> idCategoria] = $item -> Nombre_categoria;
+			                	}
+			                }
+					?>	
+					<?= form_dropdown('categoria', $desplegable)?>	
 				</div>
 				<div class="form-group color-letter">
 					<?= form_label('Prestaciones del Comp.', 'prestaciones')?>
@@ -70,18 +78,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<br>
 				<div class="form-group color-letter">
-					<?= form_label('Estado del Componente', 'estado')?>
-					<?= form_input('estado')?>		
+					<?= form_label('Estado del Componente', 'estado')?>	
+					<?php
+						$opciones = array(
+							'0' => 'Inactivo',
+			                '1' => 'Activo',    
+	               		);
+					?>
+					<?= form_dropdown('estado', $opciones)?>
 				</div>
 				<br>
 				<div class="form-group color-letter">
 					<?= form_label('Fecha de la Compra', 'fechaCompra')?>
-					<?= form_input('fechaCompra')?>		
+					<?php
+						$datos = array(
+				            'name'        => 'fechaCompra',
+				            'placeholder' => ' yyyy-mm-dd'
+			            );
+					?>
+					<?= form_input($datos)?>		
 				</div>
 				<br>
 				<div class="form-group color-letter">
 					<?= form_label('Fecha de su Retirada', 'fechaRetirada')?>
-					<?= form_input('fechaRetirada')?>	
+					<?php
+						$datos = array(
+				            'name'        => 'fechaRetirada',
+				            'placeholder' => ' yyyy-mm-dd'
+			            );
+					?>
+					<?= form_input($datos)?>
 				</div>
 				<br>
 				<div class='btn btn-default button-confirm color-letter'>

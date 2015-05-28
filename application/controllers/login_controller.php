@@ -9,12 +9,18 @@ class Login_controller extends CI_Controller {
 		
 		parent::__construct();
 		$this->load->model('login_model');
-		
+		$this->load->model('editProfile_model');
 	}
 
 	public function index()
 	{
 		$this->load->view('login');
+	}
+
+	//Mostramos los datos del usuario actual
+	public function mostrarDatosUser(){
+		$data['datos'] = $this->editProfile_model->mostrarUsuario(); 
+		$this->load->view('profile',$data);
 	}
 
 	public function recibirdatos() {
@@ -28,8 +34,7 @@ class Login_controller extends CI_Controller {
 		if($this->login_model->obtenerPass($datos) == true){
 			//Cargamos la pagina principal
 			$this->session->set_userdata('usuario', $datos['usuario']);
-			$this->load->view('profile');
-
+			$this->mostrarDatosUser();
 		}else{
 			$this->load->view('login');
 		}

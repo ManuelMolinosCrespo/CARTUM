@@ -40,14 +40,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-md-3 col-xs-6 col-xs-offset-4">
 				<br>
 				<br>
-				<p class="color-letter row">Nombre y Apellidos</p>
-				<p class="color-letter row">Correo Electrónico</p>
-				<p class="color-letter row">Rango de Usuario</p>
-				<p class="color-letter row">Teléfono</p>
+				<?php
+					if(!empty($datos)) {
+						foreach ($datos as $item) { 
+				?>
+				<b class="color-letter row">Nombre y Apellidos</b>
+				<br>
+				<?=$item -> Nombre_usuario?>  <?=$item -> Apellidos_usuario?>
+				<br>				
+				<b class="color-letter row">Correo Electrónico</b>
+				<br>	
+				<?=$item -> Correo_Electronico?>
+				<br>	
+				<b class="color-letter row">Rango de Usuario</b>
+				<br>
+				<b class="color-letter row">Teléfono</b>
+				<br>
+				<?=$item -> Telefono_usuario?>
+				<br>
+				<br>
+				<br>
+				<?php
+						}
+					}
+				?>
 			</div>
 		</div>
 		<div class="col-md-offset-7 col-xs-offset-3 color-letter">
-			<h4><a class="color-letter" href="<?php echo base_url(); ?>index.php/editProfile_controller/borrarUsuario/ "><span class="
+			<h4><a class="color-letter" href="<?php echo base_url(); ?>index.php/profile_controller/borrarUsuario/ "><span class="
 			glyphicon glyphicon-trash" aria-hidden="true"></span> <u>Eliminar Usuario</u> </a></h4>
 		</div>
 		<br>

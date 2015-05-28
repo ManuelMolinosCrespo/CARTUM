@@ -43,7 +43,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<td><b>Ficha</b></td>
 				</tr>
 				<?php
-					foreach ($datos as $item) { 
+					if(!empty($datos)) {
+						foreach ($datos as $item) { 
 				?>
 					<tr>
 					<td> <?=$item -> Nombre_categoria?> </td> 
@@ -53,6 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<td> <a href="<?php echo base_url(); ?>index.php/fichaComponente_controller/recibirdatos/<?php echo $item -> idComponente?>" class="color-letter"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a> </td>
 					</tr>
 				<?php
+						}
 					}
 				?>
 			</table>

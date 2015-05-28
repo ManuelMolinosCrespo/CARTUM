@@ -33,9 +33,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<br>
 			<div class="form-group">
-    			<?= form_submit('', 'Registrarse')?>
+    			<?= form_submit('', 'Añadir')?>
 				<?= form_close()?> 
 			</div>
+			<br>
+			<a href="<?php echo base_url(); ?>index.php/inventory_controller/index" class="color-letter"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Volver atrás</a>
 		</div>
 	</div>
 </body>

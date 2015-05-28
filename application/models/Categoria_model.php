@@ -35,6 +35,16 @@ class Categoria_model extends CI_Model {
 				return false;
 			}
 	}
-	
-	
+
+	function mostrarTodasCategorias(){
+		$query = $this->db->query("select idCategoria, Nombre_categoria From categorias_componentes"); 
+		if($query->num_rows()> 0){
+			
+			$resultado = $query->result();
+			
+			return $resultado;
+		}else{
+			return false;
+		}
+	}	
 }
