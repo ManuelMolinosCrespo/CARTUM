@@ -14,6 +14,8 @@ class Register_controller extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('register');
+		$this->load->helper('form');
+		$this->load->library('form_validation');
 	}
 
 	//Recibimos los datos de la interfaz y se los pasaremos al modelo que es el encargado de guardarlos en la base de datos 
@@ -21,18 +23,8 @@ class Register_controller extends CI_Controller {
 		//Si las contraseñas son iguales y todos los campos estan completos pasamos a registrar el usuario, en caso contrario devolvemos la pantalla de error 
 		if($this->compararPass() == true &&  $this->datosCompletos() == true){
 			//Pasamos la contraseña a sha1
-			$passSha1 = sha1($this->input->post('password'));
-			$datos = array(
-			'usuario' => $this->input->post('dni_usuario'),
-			'nombre' => $this->input->post('nombre'),
-			'apellidos' => $this->input->post('apellidos'),
-			'correo' => $this->input->post('correo'),
-			'password' => $passSha1,
-			'telefono' => $this->input->post('telefono')
-			);
-
 			 //Seleccionamos la carpeta donde queremos guardar la imagen
-		    $config['upload_path'] = './galeria/';
+		    $config['upload_path'] = './imguser/';
 		    //Seleccionamos los formatos permitidos
 		    $config['allowed_types'] = 'gif|jpg|png|jpeg';
 		    //Seleccionamos el tamaño y las medidas maximas
@@ -48,12 +40,24 @@ class Register_controller extends CI_Controller {
 		    if ( ! $this->upload->do_upload())
 		    {
 		        $error = array('error' => $this->upload->display_errors());
+		        
 		    }
 		    else
 		    {
-		        $data = array('upload_data' => $this->upload->data());		
+		    	
+		         $data = $this->upload->data();	
 			}
-
+			$passSha1 = sha1($this->input->post('password'));
+			$datos = array(
+			'usuario' => $this->input->post('dni_usuario'),
+			'nombre' => $this->input->post('nombre'),
+			'apellidos' => $this->input->post('apellidos'),
+			'correo' => $this->input->post('correo'),
+			'password' => $passSha1,
+			'telefono' => $this->input->post('telefono'),
+			//Gurdamos la url completa de las imagenes de cada usuario, identificandolas ademas x el DNI
+			'foto' => "http://localhost/CARTUM/imguser/".$config['file_name']
+			);
 			//Llamamos al modelo 
 			$this->register_model->insertarUsuario($datos);
 			$this->load->view('login');

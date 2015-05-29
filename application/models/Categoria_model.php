@@ -12,7 +12,7 @@ class Categoria_model extends CI_Model {
 	function insertarCategoria($nombre){
 		//Añadimos la nueva categoria a la bbdd
 		 $data = array(
-        'idCategoria' => $nombre);
+        'Nombre_categoria' => $nombre);
 		$this->db->insert('Categorias_Componentes', $data);
 	}
 

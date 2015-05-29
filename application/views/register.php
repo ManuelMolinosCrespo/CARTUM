@@ -90,8 +90,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<br>
 			<div class="form-group">
-				<?= form_label('Foto', 'foto')?>
-				<?= form_upload($foto)?>
+				  <label>Imagen de Perfil:</label><input type="file" name="userfile" /><br /><br />
+				
 			</div>
 			<br>
 			<div class="form-group">
