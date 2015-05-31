@@ -25,7 +25,7 @@ class EditProfile_model extends CI_Model {
 	function mostrarUsuario(){
 		//Sacamos los datos del usuario que esta registrado
 		 //Realizamos la consulta de los datos 
-      $this->db->select('Nombre_usuario,Apellidos_usuario,Correo_Electronico,Telefono_usuario');
+      $this->db->select('Nombre_usuario,Apellidos_usuario,Correo_Electronico,Telefono_usuario,FotoURL_usuario');
       $this->db->from('usuarios');
       $this->db->where('DNI_Usuario',$this->session->userdata('usuario'));
       $query= $this->db->get();
