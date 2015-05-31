@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class EditarComponente_controller extends CI_Controller {
 
+	$id = 0;
+
 	//Creamos el contructor para cargar el modelo
 	function EditarComponente_controller(){
 		
@@ -13,6 +15,7 @@ class EditarComponente_controller extends CI_Controller {
 
 	public function index()
 	{
+		$id = $this->uri->segment(3);
 		$this->load->view('editarComponente');
 	}
 
@@ -45,7 +48,7 @@ class EditarComponente_controller extends CI_Controller {
 			}
 			
 			$datos = array(
-			'idComponente' =>  $this->uri->segment(3),
+			'idComponente' =>  $id,
 			'Nombre_componente' => $this->input->post('nombre'),
 			'Fabricante_componente' => $this->input->post('fabricante'),
 			'Categoria' => $this->input->post('categoria'),
