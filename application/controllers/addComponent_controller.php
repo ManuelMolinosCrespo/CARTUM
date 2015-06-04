@@ -56,7 +56,7 @@ class AddComponent_controller extends CI_Controller {
 			'activo_inactivo' => $this->input->post('estado'),
 			'fechaCompra' => $this->input->post('fechaCompra'),
 			'fechaRetirada' => $this->input->post('fechaRetirada'),
-			'foto' => "http://localhost/CARTUM/imgcomponentes/".$config['file_name']
+			'foto' => "http://localhost/CARTUM/imgcomponentes/".$config['file_name'].$data['file_ext']
 	 	);
 		//Llamamos al modelo 
 	 	$this->addComponent_model->insertarComponente($datos);

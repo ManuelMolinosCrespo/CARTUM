@@ -34,16 +34,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<hr>
 		</div>
 		<div class="row">
+			<?php
+				if(!empty($datos)) {
+					foreach ($datos as $item) { 
+			?>
 			<div class = "col-md-2 col-xs-7 col-md-offset-1 col-xs-offset-2">
-				<img src="<?php echo base_url(); ?>img/profile_icon.png" class="img-responsive">
+				<img src="<?= $item -> FotoURL_usuario ?>" class="img-responsive">
 			</div>
 			<div class="col-md-3 col-xs-6 col-xs-offset-4">
 				<br>
 				<br>
-				<?php
-					if(!empty($datos)) {
-						foreach ($datos as $item) { 
-				?>
 				<b class="color-letter row">Nombre y Apellidos</b>
 				<br>
 				<?=$item -> Nombre_usuario?>  <?=$item -> Apellidos_usuario?>

@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class EditarComponente_controller extends CI_Controller {
 
+	
 	//Creamos el contructor para cargar el modelo
 	function EditarComponente_controller(){
 		parent::__construct();
@@ -15,10 +16,12 @@ class EditarComponente_controller extends CI_Controller {
 	{
 		$data['categorias'] = $this->categoria_model->mostrarTodasCategorias(); 
 		$this->load->view('editarComponente',$data);
+		$this->session->set_userdata('idComponente', $this->uri->segment(3));
+		
 	}
 
-	public function obtenerdatos() {	
-		$id = $this->uri->segment(3);
+	public function obtenerdatos($id) {	
+
 		//Llamamos al modelo 
 	 	$data['datos'] = $this->fichaComponente_model->obtenerFicha($id);
 		
@@ -27,9 +30,8 @@ class EditarComponente_controller extends CI_Controller {
 
 	//Recibimos los datos de la interfaz y se los pasaremos al modelo que es el encargado de guardarlos en la base de datos 
 	public function recibirdatos() {
-
-		$id = $this->uri->segment(3);
-
+		$id = $this->session->userdata('idComponente');
+		echo $id;
 		$config['upload_path'] = './imgcomponentes/';
 	    //Seleccionamos los formatos permitidos
 	    $config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -54,6 +56,7 @@ class EditarComponente_controller extends CI_Controller {
 	         $data = $this->upload->data();	
 	         
 		}
+		
 		$datos = array(
 			'idComponente' =>  $id,
 			'Nombre_componente' => $this->input->post('nombre'),
@@ -69,6 +72,6 @@ class EditarComponente_controller extends CI_Controller {
 		);
 		//Llamamos al modelo 
  	$this->editarComponente_model->actualizarComponente($datos);
- 	$this->obtenerdatos();
+ 	$this->obtenerdatos($id);
 	}
 }

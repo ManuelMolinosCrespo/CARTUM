@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="row">
 
 
-	<?= form_open_multipart("/editarComponente_controller/recibirdatos") ?>	
+	<?= form_open_multipart("/editarComponente_controller/recibirdatos/") ?>	
 			<div class = "col-md-2 col-xs-7 col-md-offset-1 col-xs-offset-2">
 				<div class="form-group color-letter">
 					<?= form_label('Foto', 'foto')?>
@@ -131,7 +131,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<br>
 				<br>
-				<a href="<?php echo base_url(); ?>index.php/fichaComponente_controller/recibirdatos/<?= $this->uri->segment(3)?>" class="color-letter"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Volver atrás</a>
+				<a href="<?php echo base_url(); ?>index.php/fichaComponente_controller/recibirdatos/<?php echo $this->uri->segment(3)?>" class="color-letter"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Volver atrás</a>
 			</div>
 		</div>
 	</div>

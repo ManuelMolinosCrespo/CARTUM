@@ -56,7 +56,7 @@ class Register_controller extends CI_Controller {
 			'password' => $passSha1,
 			'telefono' => $this->input->post('telefono'),
 			//Gurdamos la url completa de las imagenes de cada usuario, identificandolas ademas x el DNI
-			'foto' => "http://localhost/CARTUM/imguser/".$config['file_name']
+			'foto' => "http://localhost/CARTUM/imguser/".$config['file_name'].$data['file_ext']
 			);
 			//Llamamos al modelo 
 			$this->register_model->insertarUsuario($datos);
