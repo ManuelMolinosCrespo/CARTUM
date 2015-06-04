@@ -76,6 +76,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<br>
 				<div class="form-group color-letter">
+					<?= form_label('ID del Dron Actual', 'idDron')?>
+					<?= form_input('idDron')?>		
+				</div>
+				<br>
+				<div class="form-group color-letter">
 					<?= form_label('Estado del Componente', 'estado')?>	
 					<?php
 						$opciones = array(

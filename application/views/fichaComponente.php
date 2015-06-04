@@ -33,8 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			foreach ($datos as $item) { 
 		?>
 		<div class="row col-md-offset-1">
-			//El error esta aqui, estabas llamando a editarComponente/recibir datos y tienes que llamas solo a editarComponente arreglalo.
-			<h3 class="color-letter">Ficha Componente <a href="<?php echo base_url(); ?>index.php/editarComponente_controller/index <?php echo $item -> idComponente?>" class="color-letter"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></h3>
+			<h3 class="color-letter">Ficha Componente <a href="<?php echo base_url(); ?>index.php/editarComponente_controller/index/<?php echo $item -> idComponente?>" class="color-letter"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></h3>
 			<hr>
 		</div>
 			<div class="col-md-2 col-xs-4 col-sm-3 col-md-offset-1 col-xs-offset-1">

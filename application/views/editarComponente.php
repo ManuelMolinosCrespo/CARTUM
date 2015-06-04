@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="es">
 <head>
 	<meta charset="utf-8">
-	<title>Inventario</title>
+	<title>Editar Componente</title>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
       rel="stylesheet" type="text/css">
       <link href="<?php echo base_url(); ?>css/style.css"
@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</nav>
 	<div class="container-fluid">
 		<div class="row col-md-offset-1">
-			<h3 class="color-letter">Añadir Componente</h3>
+			<h3 class="color-letter">Editar Componente</h3>
 			<hr>
 		</div>
 		<div class="row">
@@ -47,6 +47,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<?= form_label('Nombre del Comp.', 'nombre')?>
 					<?= form_input('nombre')?>			
 				</div>
+				<br>
+				<div class="form-group color-letter">
+					<?= form_label('ID del Dron Actual', 'idDron')?>
+					<?= form_input('idDron')?>		
+				</div>
+				<br>
 				<div class="form-group color-letter">
 					<?= form_label('Fabrica del Comp.', 'fabricante')?>
 					<?= form_input('fabricante')?>		
@@ -63,6 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					?>	
 					<?= form_dropdown('categoria', $desplegable)?>		
 				</div>
+				<br>
 				<div class="form-group color-letter">
 					<?= form_label('Prestaciones del Comp.', 'prestaciones')?>
 					<?= form_input('prestaciones')?>	
@@ -73,6 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<?= form_label('Peso del Componente', 'peso')?>
 					<?= form_input('peso')?>		
 				</div>
+				<br>
 				<div class="form-group color-letter">
 					<?= form_label('Estado del Componente', 'estado')?>	
 					<?php
@@ -83,6 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					?>
 					<?= form_dropdown('estado', $opciones)?>
 				</div>
+				<br>
 				<div class="form-group color-letter">
 					<?= form_label('Fecha de la Compra', 'fechaCompra')?>
 					<?php
@@ -93,6 +102,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					?>
 					<?= form_input($datos)?>		
 				</div>
+				<br>
 				<div class="form-group color-letter">
 					<?= form_label('Fecha de su Retirada', 'fechaRetirada')?>
 					<?php
@@ -104,13 +114,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<?= form_input($datos)?>	
 				</div>
 				<br>
+				<div class="form-group color-letter">
+					<?= form_label('Activo o Inactivo', 'activo_inactivo')?>	
+					<?php
+						$opciones = array(
+							'0' => 'Inactivo',
+			                '1' => 'Activo',    
+	               		);
+					?>
+					<?= form_dropdown('estado', $opciones)?>
+				</div>
+				<br>
 				<div class='btn btn-default button-confirm color-letter'>
 				<?= form_submit('', 'Añadir') ?>
 				<?= form_close() ?> 
 				</div>
 				<br>
 				<br>
-				<a href="<?php echo base_url(); ?>index.php/fichaComponente_controller/index" class="color-letter"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Volver atrás</a>
+				<a href="<?php echo base_url(); ?>index.php/fichaComponente_controller/recibirdatos/<?= $this->uri->segment(3)?>" class="color-letter"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Volver atrás</a>
 			</div>
 		</div>
 	</div>
