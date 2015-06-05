@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="es">
 <head>
 	<meta charset="utf-8">
-	<title>Inventario</title>
+	<title>Inventario Drones</title>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
       rel="stylesheet" type="text/css">
       <link href="<?php echo base_url(); ?>css/style.css"
@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<ul class="nav nav-pills nav-justified">
 			<li><a href="<?php echo base_url(); ?>index.php/calendar_controller/index" class="color-letter">Calendario</a></li>
 			<li><a href="<?php echo base_url(); ?>index.php/profile_controller/index" class="color-letter">Perfil</a></li>
-			<li><a href="<?php echo base_url(); ?>index.php/inventoryDrones_controller/index" class="color-letter">Drones</a></li>
+			<li><a href="<?php echo base_url(); ?>index.php/inventory_controller/index" class="color-letter">Inventario</a></li>
 			<li><a href="#" class="color-letter">Mantenimiento</a></li>
 			<li><a href="#" class="color-letter">Normativa</a></li>
 			<li><a href="#" class="color-letter">Vuelos</a></li>
@@ -30,16 +30,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</nav>
 	<div class="container-fluid">
 		<div class="row col-md-offset-1">
-			<h3 class="color-letter">Inventario <a href="<?php echo base_url(); ?>index.php/addComponent_controller/index" class="color-letter"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></h3>
+			<h3 class="color-letter">Inventario de Drones<a href="<?php echo base_url(); ?>index.php/addDron_controller/index" class="color-letter"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></h3>
 			<hr>
 		</div>
 		<div class="row table-responsive col-md-offset-2 col-xs-offset-1 col-md-9">
 			<table class="table table-condensed">
 				<tr>
-					<td><b>Categoría</b></td>
 					<td><b>Nombre</b></td>
+					<td><b>Fecha de Montaje</b></td>
 					<td><b>Estado</b></td>
-					<td><b>ID Dron Equipado</b></td>
 					<td><b>Ficha</b></td>
 				</tr>
 				<?php
@@ -47,11 +46,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						foreach ($datos as $item) { 
 				?>
 					<tr>
-					<td> <?=$item -> Nombre_categoria?> </td> 
-					<td> <?=$item -> Nombre_componente?> </td> 
-					<td> <?=$item -> Estado_componente?> </td> 
-					<td> <?=$item -> idDronActual?> </td>
-					<td> <a href="<?php echo base_url(); ?>index.php/fichaComponente_controller/recibirdatos/<?php echo $item -> idComponente?>" class="color-letter"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a> </td>
+					<td> <?=$item -> Nombre_dron?> </td> 
+					<td> <?=$item -> Fecha_montaje?> </td> 
+					<td> <?=$item -> Estado?> </td> 
+					<td> <a href="<?php echo base_url(); ?>index.php/fichaDron_controller/recibirdatos/<?php echo $item -> idDron?>" class="color-letter"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a> </td>
 					</tr>
 				<?php
 						}
@@ -59,11 +57,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				?>
 			</table>
 		</div>
-	</div>
-	<div class="row col-md-offset-1">
-		<br>
-		<br>
-		<h4><a href="<?php echo base_url(); ?>index.php/categoria_controller/index" class="color-letter"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Añadir o Eliminar Categoría</a></h4>
 	</div>
 </body>
 </html>
