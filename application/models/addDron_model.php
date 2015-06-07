@@ -10,6 +10,6 @@ class AddDron_model extends CI_Model {
 
 	//Recibimos los datos del componente y los insertamos en la base de datos 
 	function insertarDron($datos){
-		$this->db->insert('Drones',array('idDron'=> $datos['idDron'],'Nombre_dron' => $datos['nombre'], 'Fabricante_dron'=> $datos['fabricante'],'Categoria'=> $datos['categoria'],'Prestaciones_dron'=> $datos['prestaciones'],'Peso_dron'=> $datos['peso'],'estado_dron'=> $datos['estado'], 'Fecha_Montaje'=> $datos['Fecha_Montaje'],'Fecha_Retirada'=> $datos['fechaRetirada'],,'FotoURL_componente'=> $datos['foto'] ));
+		$this->db->insert('Drones',array('idDron'=> $datos['idDron'],'Nombre_dron' => $datos['Nombre_dron'], 'Fabricante_dron'=> $datos['Fabricante_dron'],'Categoria_dron'=> $datos['Categoria_dron'],'Prestaciones_dron'=> $datos['Prestaciones_dron'],'Peso_dron'=> $datos['Peso_dron'],'Estado_dron'=> $datos['Estado_dron'], 'Fecha_Montaje_dron'=> $datos['Fecha_Montaje_dron'],'Fecha_Retirada_dron'=> $datos['Fecha_Retirada_dron'],'FotoURL_dron'=> $datos['FotoURL_dron'] ));
 	}
 }

@@ -9,12 +9,13 @@ class AddDron_controller extends CI_Controller {
 		
 		parent::__construct();
 		 $this->load->model('addDron_model');
+		 //$this->load->model('dron_model');
 
 	}
 
 	public function index()
 	{
-		$this->mostrarCategoria();
+		$this->load->view('addDron');
 	}
 
 	public function recibirdatos() {
@@ -46,15 +47,15 @@ class AddDron_controller extends CI_Controller {
 		//Recogemos los datos introducccidos por el usuario en un array y posteriormente los pasamos al modelo para guardarlos en la bbdd
 	 	$datos = array(
 	 		'idDron' => $this->input->post('idDron'),
-	 		'Nombre' => $this->input->post('nombre'),
-			'Fabricante' => $this->input->post('Fabricante'),
-			'Categoria' => $this->input->post('Categoria'),
-			'Prestaciones' => $this->input->post('Prestaciones'),
-			'Peso' => $this->input->post('Peso'),
-			'Estado' => $this->input->post('Estado'),
-			'Fecha_Montaje' => $this->input->post('fechaMontaje'),
-			'Fecha_Retirada' => $this->input->post('fechaRetirada'),
-			'foto' => "http://localhost/CARTUM/imgdrones/".$config['file_name'].$data['file_ext']
+	 		'Nombre_dron' => $this->input->post('nombre'),
+			'Fabricante_dron' => $this->input->post('fabricante'),
+			'Categoria_dron' => $this->input->post('categoria'),
+			'Prestaciones_dron' => $this->input->post('prestaciones'),
+			'Peso_dron' => $this->input->post('peso'),
+			'Estado_dron' => $this->input->post('estado'),
+			'Fecha_Montaje_dron' => $this->input->post('fechaMontaje'),
+			'Fecha_Retirada_dron' => $this->input->post('fechaRetirada'),
+			'FotoURL_dron' => "http://localhost/CARTUM/imgdrones/".$config['file_name'].$data['file_ext']
 	 	);
 		//Llamamos al modelo 
 	 	$this->addDron_model->insertarDron($datos);

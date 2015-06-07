@@ -37,45 +37,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<hr>
 		</div>
 		<div class = "col-md-2 col-xs-4 col-md-offset-1 col-xs-offset-1">
-			<img src="<?= $item -> Foto ?>" class="img-responsive">
+			<img src="<?= $item -> FotoURL_dron ?>" class="img-responsive">
 		</div>
 		<div class="col-md-2 col-xs-4 col-sm-3 col-md-offset-1 col-xs-offset-1">
 			<b class="color-letter row">Nombre</b>
 			<br>
-			<?=$item -> Nombre?>
+			<?=$item -> Nombre_dron?>
 			<br>				
 			<b class="color-letter row">Fabricante</b>
 			<br>	
-			<?=$item -> Fabricante?>
+			<?=$item -> Fabricante_dron?>
 			<br>	
 			<b class="color-letter row">Categoría</b>
 			<br>
-			<?=$item -> Categoria?>
+			<?=$item -> Categoria_dron?>
 			<br>
 			<b class="color-letter row">Prestaciones</b>
 			<br>
-			<?=$item -> Prestaciones?>
+			<?=$item -> Prestaciones_dron?>
 			<br>
 			<b class="color-letter row">Peso</b>
 			<br>
-			<?=$item -> Peso?>
+			<?=$item -> Peso_dron?>
 			<br>		
 		</div>
 		<div class="col-md-3 col-xs-7 col-sm-3 col-xs-offset-1 col-sm-offset-3 col-md-offset-3">
 			<b class="color-letter row">Horas de vuelo</b>
 			<br>
-			<?=$item -> Horas_de_vuelo?>
+			<?=$item -> Horas_de_vuelo_dron?>
 			<b class="color-letter row">Estado</b>
 			<br>
-			<?=$item -> Estado?> 
+			<?=$item -> Estado_dron?> 
 			<br>
 			<b class="color-letter row">Fecha de Compra</b>
 			<br>
-			<?=$item -> Fecha_Montaje?>
+			<?=$item -> Fecha_Montaje_dron?>
 			<br>
 			<b class="color-letter row">Fecha de Retirada</b>
 			<br>
-			<?=$item -> Fecha_Retirada?>
+			<?=$item -> Fecha_Retirada_dron?>
 			<br>
 		</div>					
 	</div>
@@ -87,7 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span> <u>Inventario de Drones</u> </a></h4>
 		</div>
 		<div class="row col-md-3 col-xs-7 col-sm-3 col-md-offset-1 col-xs-offset-1 col-sm-offset-3 col-md-offset-3">
-			<h4><a class="color-letter" href="<?php echo base_url(); ?>index.php/fichaDron_controller/eliminarComponente/<?php echo $item -> idDron?>"><span class="
+			<h4><a class="color-letter" href="<?php echo base_url(); ?>index.php/fichaDron_controller/eliminarDron/<?php echo $item -> idDron?>"><span class="
 glyphicon glyphicon-trash" aria-hidden="true"></span> <u>Eliminar Dron</u> </a></h4>
 		</div>
 	</div>

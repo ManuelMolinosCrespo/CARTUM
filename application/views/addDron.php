@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<div class="form-group color-letter">
 					<?= form_label('Categoría del Dron', 'categoria')?>
-					<?= form_input('dron')?>	
+					<?= form_input('categoria')?>	
 				</div>
 				<div class="form-group color-letter">
 					<?= form_label('Prestaciones del Dron', 'prestaciones')?>

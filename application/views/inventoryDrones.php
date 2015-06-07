@@ -47,8 +47,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				?>
 					<tr>
 					<td> <?=$item -> Nombre_dron?> </td> 
-					<td> <?=$item -> Fecha_montaje?> </td> 
-					<td> <?=$item -> Estado?> </td> 
+					<td> <?=$item -> Fecha_Montaje_dron?> </td> 
+					<td> <?=$item -> Estado_dron?> </td> 
 					<td> <a href="<?php echo base_url(); ?>index.php/fichaDron_controller/recibirdatos/<?php echo $item -> idDron?>" class="color-letter"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a> </td>
 					</tr>
 				<?php
