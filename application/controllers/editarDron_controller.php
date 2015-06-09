@@ -47,7 +47,7 @@ class EditarDron_controller extends CI_Controller {
 	    if ( ! $this->upload->do_upload())
 	    {
 	        $error = array('error' => $this->upload->display_errors());
-	        
+	         $data['file_ext'] = '';
 	    }
 	    else
 	    {

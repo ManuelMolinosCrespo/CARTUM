@@ -49,7 +49,7 @@ class EditarComponente_controller extends CI_Controller {
 	    if ( ! $this->upload->do_upload())
 	    {
 	        $error = array('error' => $this->upload->display_errors());
-	        
+	         $data['file_ext'] = '';
 	    }
 	    else
 	    {
@@ -68,7 +68,8 @@ class EditarComponente_controller extends CI_Controller {
 			'Estado_componente' => $this->input->post('estado'),
 			'Fecha_Compra' => $this->input->post('fechaCompra'),
 			'Activo_Inactivo' => $this->input->post('activo_inactivo'),
-			'Fecha_Retirada' => $this->input->post('fechaRetirada'),
+			'idDronActual' => $this->input->post('idDron'),
+			'Fecha_Retirada' => $this->input->post('fechaRetirada')
 		);
 
 		//Borramos los datos del array si estan vacios para no actualizar un blanco
@@ -95,6 +96,9 @@ class EditarComponente_controller extends CI_Controller {
 	 		}
 	 		if($this->input->post('fechaRetirada')==""){
 	 			unset($datos['Fecha_Retirada']);
+	 		}
+	 		if($this->input->post('idDron')==""){
+	 			unset($datos['idDronActual']);
 	 		}
 	 		//Comprobamos que el array no este vacio y tengamos datos que actualizar
 			if(empty($datos)){

@@ -30,4 +30,9 @@ class FichaDron_model extends CI_Model {
 		$this->db->where('idDron',$id);
 		return $this->db->delete('drones');
 	}
+
+	function incrementarVuelo($id){
+		$query = $this->db->query("UPDATE componentes c INNER JOIN drones d ON c.idDronActual = d.idDron  SET Numero_Vuelos_Realizados_componente = Numero_Vuelos_Realizados_componente + 1 WHERE c.idDronActual = '".$id."'"); 
+
+	}
 }

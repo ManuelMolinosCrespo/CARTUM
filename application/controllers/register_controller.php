@@ -40,7 +40,7 @@ class Register_controller extends CI_Controller {
 		    if ( ! $this->upload->do_upload())
 		    {
 		        $error = array('error' => $this->upload->display_errors());
-		        echo $error['error'];
+		         $data['file_ext'] = '';
 		    }
 		    else
 		    {

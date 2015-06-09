@@ -35,6 +35,7 @@ class AddComponent_controller extends CI_Controller {
 		    if ( ! $this->upload->do_upload())
 		    {
 		        $error = array('error' => $this->upload->display_errors());
+		        $data['file_ext'] = '';
 		        
 		    }
 		    else
@@ -55,6 +56,7 @@ class AddComponent_controller extends CI_Controller {
 			'estado' => $this->input->post('estado'),
 			'activo_inactivo' => $this->input->post('estado'),
 			'fechaCompra' => $this->input->post('fechaCompra'),
+			'idDronActual' => $this->input->post('idDron'),
 			'fechaRetirada' => $this->input->post('fechaRetirada'),
 			'foto' => "http://localhost/CARTUM/imgcomponentes/".$config['file_name'].$data['file_ext']
 	 	);
