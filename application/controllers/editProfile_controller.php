@@ -28,8 +28,10 @@ class EditProfile_controller extends CI_Controller {
 		    $config['max_size']    = '2000';
 		    $config['max_width']  = '2000';
 		    $config['max_height']  = '2000';
+		    //Hacemos que se sobrescriba la imagen actual
+		    $config['overwrite'] = 'TRUE';
 		   	//Cambiamos el nombre original por el dni del user de esta forma nos aseguramos no guardar nunca dos imagenes iguales
-		    $config['file_name'] = $this->input->post('dni_usuario');
+		    $config['file_name'] = $this->session->userdata('usuario');
 		 
 		 	//Llamamos a la libreria encargada de subir la imagen y realizamos el proceso. Si hubiera algun error se mostraria por pantalla d
 		    $this->load->library('upload', $config);
@@ -45,14 +47,33 @@ class EditProfile_controller extends CI_Controller {
 		         $data = $this->upload->data();	
 			}
 		 	$passSha1 = sha1($this->input->post('password'));
+			
+			
 			$datos = array(
 				'correo_electronico' => $this->input->post('correo'),
 	 			'telefono_usuario' => $this->input->post('telefono'),
-	 			'foto' => "http://localhost/CARTUM/imguser/".$config['file_name'].$data['file_ext'],
+				//La URl de la imagen no la actualizamos poque va a ser la misma
 	 			'contraseña' => $passSha1
 	 		);
-			//Llamamos al modelo 
-	 		$this->editProfile_model->actualizarUsuario($datos);
+
+			//Borramos los datos del array si estan vacios para no actualizar un blanco
+	 		if($this->input->post('correo')==""){
+	 			unset($datos['correo_electronico']);
+	 		}
+	 		if($this->input->post('telefono')==""){
+	 			unset($datos['telefono_usuario']);
+	 		}
+	 		if($this->input->post('password')==""){
+	 			unset($datos['contraseña']);
+	 		}
+			//Comprobamos que el array no este vacio y tengamos datos que actualizar
+			if(empty($datos)){
+
+			}else{
+					//Llamamos al modelo 
+					$this->editProfile_model->actualizarUsuario($datos);	
+			}
+	 
 			$this->mostrarDatosUser();
 		}else{
 		 	//Devolvemos la pantalla de error 

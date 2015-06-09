@@ -37,8 +37,9 @@ class EditarDron_controller extends CI_Controller {
 	    $config['max_size']    = '2000';
 	    $config['max_width']  = '2000';
 	    $config['max_height']  = '2000';
+	    $config['overwrite'] = 'TRUE';
 	   	//Cambiamos el nombre original por el dni del user de esta forma nos aseguramos no guardar nunca dos imagenes iguales
-	    $config['file_name'] = $this->input->post('idDron');
+	    $config['file_name'] = $id;
 	 
 	 	//Llamamos a la libreria encargada de subir la imagen y realizamos el proceso. Si hubiera algun error se mostraria por pantalla d
 	    $this->load->library('upload', $config);
@@ -65,10 +66,42 @@ class EditarDron_controller extends CI_Controller {
 			'Estado_dron' => $this->input->post('estado'),
 			'Fecha_Montaje_dron' => $this->input->post('fechaMontaje'),
 			'Fecha_Retirada_dron' => $this->input->post('fechaRetirada'),
-			'FotoURL_dron' => "http://localhost/CARTUM/imgdrones/".$config['file_name'].$data['file_ext']
+			//La url de la imagen no se actualiza porque siempre va a ser la misma
 		);
-		//Llamamos al modelo 
- 	$this->editarDron_model->actualizarDron($datos);
+
+		//Borramos los datos del array si estan vacios para no actualizar un blanco
+	 		if($this->input->post('nombre')==""){
+	 			unset($datos['Nombre_dron']);
+	 		}
+	 		if($this->input->post('fabricante')==""){
+	 			unset($datos['Fabricante_dron']);
+	 		}
+	 		if($this->input->post('Categoria')==""){
+	 			unset($datos['Categoria_dron']);
+	 		}
+	 		if($this->input->post('prestaciones')==""){
+	 			unset($datos['Prestaciones_dron']);
+	 		}
+	 		if($this->input->post('peso')==""){
+	 			unset($datos['Peso_dron']);
+	 		}
+	 		if($this->input->post('estado')==""){
+	 			unset($datos['Estado_dron']);
+	 		}
+	 		if($this->input->post('fechaMontaje')==""){
+	 			unset($datos['Fecha_Montaje_dron']);
+	 		}
+	 		if($this->input->post('fechaRetirada')==""){
+	 			unset($datos['Fecha_Retirada_dron']);
+	 		}
+	 		//Comprobamos que el array no este vacio y tengamos datos que actualizar
+			if(empty($datos)){
+
+			}else{
+				//Llamamos al modelo 
+ 				$this->editarDron_model->actualizarDron($datos);
+ 	
+ 			}
  	$this->obtenerdatos($id);
 	}
 }

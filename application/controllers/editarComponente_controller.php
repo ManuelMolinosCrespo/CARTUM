@@ -39,8 +39,9 @@ class EditarComponente_controller extends CI_Controller {
 	    $config['max_size']    = '2000';
 	    $config['max_width']  = '2000';
 	    $config['max_height']  = '2000';
+	    $config['overwrite'] = 'TRUE';
 	   	//Cambiamos el nombre original por el dni del user de esta forma nos aseguramos no guardar nunca dos imagenes iguales
-	    $config['file_name'] = $this->input->post('idComponente');
+	    $config['file_name'] = $id;
 	 
 	 	//Llamamos a la libreria encargada de subir la imagen y realizamos el proceso. Si hubiera algun error se mostraria por pantalla d
 	    $this->load->library('upload', $config);
@@ -68,10 +69,40 @@ class EditarComponente_controller extends CI_Controller {
 			'Fecha_Compra' => $this->input->post('fechaCompra'),
 			'Activo_Inactivo' => $this->input->post('activo_inactivo'),
 			'Fecha_Retirada' => $this->input->post('fechaRetirada'),
-			'fotoURL_componente'=> "http://localhost/CARTUM/imgcomponentes/".$config['file_name']
 		);
+
+		//Borramos los datos del array si estan vacios para no actualizar un blanco
+	 		if($this->input->post('nombre')==""){
+	 			unset($datos['Nombre_componente']);
+	 		}
+	 		if($this->input->post('fabricante')==""){
+	 			unset($datos['Fabricante_componente']);
+	 		}
+	 		if($this->input->post('categoria')==""){
+	 			unset($datos['Categoria']);
+	 		}
+	 		if($this->input->post('prestaciones')==""){
+	 			unset($datos['Prestaciones_componente']);
+	 		}
+	 		if($this->input->post('peso')==""){
+	 			unset($datos['Peso_componente']);
+	 		}
+	 		if($this->input->post('estado')==""){
+	 			unset($datos['Estado_componente']);
+	 		}
+	 		if($this->input->post('fechaCompra')==""){
+	 			unset($datos['Fecha_Compra']);
+	 		}
+	 		if($this->input->post('fechaRetirada')==""){
+	 			unset($datos['Fecha_Retirada']);
+	 		}
+	 		//Comprobamos que el array no este vacio y tengamos datos que actualizar
+			if(empty($datos)){
+
+			}else{
 		//Llamamos al modelo 
- 	$this->editarComponente_model->actualizarComponente($datos);
+ 			$this->editarComponente_model->actualizarComponente($datos);
+ 			}
  	$this->obtenerdatos($id);
 	}
 }

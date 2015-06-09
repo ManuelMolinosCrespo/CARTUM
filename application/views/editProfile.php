@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					'placeholder' => 'Ingresa tu número de teléfono'
 				);
 			?>
-			<?= form_open("/editProfile_controller/recibirdatos") ?>
+			<?= form_open_multipart("/editProfile_controller/recibirdatos") ?>
 			<div class="form-group">
 				<?= form_label('Correo Electrónico', 'correo')?>
 				<?= form_input($correo)?>
@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<div class="form-group">
 				<?= form_label('Foto', 'foto')?>
-				<?= form_upload('foto')?>		
+				<label></label><input type="file" name="userfile" /><br /><br />	
 			</div>
 			<br>
 			<div class='btn btn-default button-confirm col-md-offset-2 col-xs-offset-2 color-letter'>
