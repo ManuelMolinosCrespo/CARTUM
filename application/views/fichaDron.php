@@ -81,7 +81,9 @@ glyphicon glyphicon-plane" aria-hidden="true"></span></a></h3>
 		</div>					
 	</div>
 	<br>
-	<br>
+	<div class="row col-md-3 col-xs-7 col-sm-3 col-md-offset-1 col-xs-offset-1 col-sm-offset-3 col-md-offset-3">
+			<h4><a class="color-letter" href="<?php echo base_url(); ?>index.php/----/<?php echo $item -> idDron?>"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> <u> Incrementar horas de vuelo</u> </a></h4>
+		</div>
 	<div class="row container-fluid">
 		<div class="row col-md-3 col-xs-7 col-sm-3 col-md-offset-1 col-xs-offset-1">
 			<h4><a class="color-letter" href="<?php echo base_url(); ?>index.php/inventoryDrones_controller/index"><span class="
