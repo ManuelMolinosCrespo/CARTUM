@@ -15,10 +15,12 @@ class EditarComponente_controller extends CI_Controller {
 	public function index()
 	{
 		$data['categorias'] = $this->categoria_model->mostrarTodasCategorias(); 
+	 	$data['drones'] = $this->editarComponente_model->obtenerTodosDrones(); 
 		$this->load->view('editarComponente',$data);
 		$this->session->set_userdata('idComponente', $this->uri->segment(3));
 		
 	}
+	
 
 	public function obtenerdatos($id) {	
 
@@ -109,4 +111,5 @@ class EditarComponente_controller extends CI_Controller {
  			}
  	$this->obtenerdatos($id);
 	}
+
 }

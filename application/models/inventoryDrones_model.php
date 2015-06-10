@@ -25,19 +25,5 @@ class InventoryDrones_model extends CI_Model {
 			}
 	}
 
-	public function obtenerTodosDrones(){
-		//Realizamos la consulta de todos los datos
-      $this->db->select('idDron');
-      $this->db->from('Drones');
-      $query= $this->db->get();
-		if($query->num_rows()> 0){
-			
-			$resultado = $query->result();
-			
-			return $resultado;
-			}else{
-				return false;
-			}
-	}
 	
 }

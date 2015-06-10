@@ -73,6 +73,8 @@ class AddComponent_controller extends CI_Controller {
 
 	public function mostrarCategoria(){
 	 	$data['categorias'] = $this->categoria_model->mostrarTodasCategorias(); 
+	 	$data['drones'] = $this->addComponent_model->obtenerTodosDrones(); 
 	 	$this->load->view('addComponent',$data);
 	}
+
 }
