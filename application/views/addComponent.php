@@ -60,6 +60,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			                	foreach ($categorias as $item) {
 			                		$desplegable[$item -> idCategoria] = $item -> Nombre_categoria;
 			                	}
+			                } else {
+			                	$desplegable = "";
 			                }
 					?>	
 					<?= form_dropdown('categoria', $desplegable)?>	
@@ -114,7 +116,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<br>
 				<div class='btn btn-default button-confirm color-letter'>
-				<?= form_submit('', 'Añadir') ?>
+				<?php
+					if($desplegable == "") {
+						echo "<p>Inserte una categoria antes de continuar</p>";
+					} else {
+				?>
+				<?= form_submit('', 'Añadir')?>
+				<?php
+					}
+				?>
+				
 				<?= form_close() ?> 
 				</div>
 				<br>
