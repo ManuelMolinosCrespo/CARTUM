@@ -60,7 +60,11 @@ class AddComponent_controller extends CI_Controller {
 			'fechaCompra' => $this->input->post('fechaCompra'),
 			'fechaRetirada' => $this->input->post('fechaRetirada'),
 			'foto' => "http://localhost/CARTUM/imgcomponentes/".$config['file_name'].$data['file_ext']
+
 	 	);
+	 			//Llamamos al modelo 
+	 		$this->addComponent_model->insertarComponenteSinDron($datos);
+			$this->obtenerdatos();
 	 	}else{
 	 		$datos = array(
 	 		'idComponente' => $this->input->post('idComponente'),
@@ -76,11 +80,13 @@ class AddComponent_controller extends CI_Controller {
 			'fechaRetirada' => $this->input->post('fechaRetirada'),
 			'foto' => "http://localhost/CARTUM/imgcomponentes/".$config['file_name'].$data['file_ext']
 	 	);
+	 			//Llamamos al modelo 
+	 		$this->addComponent_model->insertarComponente($datos);
+			$this->obtenerdatos();
 	 	}
 	 	
-		//Llamamos al modelo 
-	 	$this->addComponent_model->insertarComponente($datos);
-		$this->obtenerdatos();
+	
+	 	
 	}
 
 	public function obtenerdatos() {
