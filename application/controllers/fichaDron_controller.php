@@ -43,6 +43,7 @@ class FichaDron_controller extends CI_Controller {
 	public function incrementarVuelo(){
 		$id = $this->uri->segment(3);
 		$this->fichaDron_model->incrementarVuelo($id);
+		$this->obtenerdatos();
 		//Llamamos a la vista
 	}
 }

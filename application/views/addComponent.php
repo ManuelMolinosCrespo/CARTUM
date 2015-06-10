@@ -118,8 +118,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class='btn btn-default button-confirm color-letter'>
 				<?php
 					if($desplegable == "") {
-						echo "<p>Inserte una categoria antes de continuar</p>";
-					} else {
+				?>
+						<a href="<?php echo base_url(); ?>index.php/categoria_controller/index">Inserte una categoria antes de continuar</a>
+				<?php
+				} else {
 				?>
 				<?= form_submit('', 'Añadir')?>
 				<?php
