@@ -46,7 +46,23 @@ class AddComponent_controller extends CI_Controller {
 			}
 
 		//Recogemos los datos introducccidos por el usuario en un array y posteriormente los pasamos al modelo para guardarlos en la bbdd
-	 	$datos = array(
+	 	// Si el usuario no monta el componente en un dron, no insertamos el idDron
+	 	if( $this->input->post('idDron') == ""){
+	 		$datos = array(
+	 		'idComponente' => $this->input->post('idComponente'),
+	 		'nombre' => $this->input->post('nombre'),
+			'fabricante' => $this->input->post('fabricante'),
+			'categoria' => $this->input->post('categoria'),
+			'prestaciones' => $this->input->post('prestaciones'),
+			'peso' => $this->input->post('peso'),
+			'estado' => $this->input->post('estado'),
+			'activo_inactivo' => $this->input->post('estado'),
+			'fechaCompra' => $this->input->post('fechaCompra'),
+			'fechaRetirada' => $this->input->post('fechaRetirada'),
+			'foto' => "http://localhost/CARTUM/imgcomponentes/".$config['file_name'].$data['file_ext']
+	 	);
+	 	}else{
+	 		$datos = array(
 	 		'idComponente' => $this->input->post('idComponente'),
 	 		'nombre' => $this->input->post('nombre'),
 			'fabricante' => $this->input->post('fabricante'),
@@ -60,6 +76,8 @@ class AddComponent_controller extends CI_Controller {
 			'fechaRetirada' => $this->input->post('fechaRetirada'),
 			'foto' => "http://localhost/CARTUM/imgcomponentes/".$config['file_name'].$data['file_ext']
 	 	);
+	 	}
+	 	
 		//Llamamos al modelo 
 	 	$this->addComponent_model->insertarComponente($datos);
 		$this->obtenerdatos();
