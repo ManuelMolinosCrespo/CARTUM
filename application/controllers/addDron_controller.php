@@ -8,9 +8,8 @@ class AddDron_controller extends CI_Controller {
 	function AddDron_controller(){
 		
 		parent::__construct();
-		 $this->load->model('addDron_model');
-		 //$this->load->model('dron_model');
-
+		$this->load->model('addDron_model');
+		$this->load->model('inventoryDrones_model');
 	}
 
 	public function index()
@@ -59,7 +58,14 @@ class AddDron_controller extends CI_Controller {
 	 	);
 		//Llamamos al modelo 
 	 	$this->addDron_model->insertarDron($datos);
+	 	$this->obtenerdatos();
+	}
 
+	public function obtenerdatos() {
+	
+	 	//Llamamos al modelo 
+	  $data['datos'] = $this->inventoryDrones_model->obtenerDron(); 
+	 $this->load->view('inventoryDrones',$data);
 	}
 
 
