@@ -9,11 +9,13 @@ class HorasVuelos_controller extends CI_Controller {
 		
 		parent::__construct();
 		 $this->load->model('horasVuelos_model');
-		 $this->load->view('horasVuelos');
 	}
 
+	public function index() {
+		$this->load->view('horasVuelos');
+	}
 
-	function recibirDatos(){
+	public function recibirDatos(){
 		$datos = array(
 	 		'idDron' => $this->uri->segment(3),
 	 		'horas' => $this->input->post('horas_vuelo')

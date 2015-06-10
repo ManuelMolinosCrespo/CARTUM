@@ -16,7 +16,7 @@ class AnadirCategoria_controller extends CI_Controller {
 		$this->load->view('añadirCategoria');
 	}
 
-	 public function recibirdatos() {
+	public function recibirdatos() {
 	 	//Recogemos nombre de la categoria para guardarlo en la bbdd
 	 	$datos  =  $this->input->post('nombre_categoria')
 		//Llamamos al modelo 
