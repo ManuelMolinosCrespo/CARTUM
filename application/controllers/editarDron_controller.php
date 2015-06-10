@@ -65,8 +65,9 @@ class EditarDron_controller extends CI_Controller {
 			'Peso_dron' => $this->input->post('peso'),
 			'Estado_dron' => $this->input->post('estado'),
 			'Fecha_Montaje_dron' => $this->input->post('fechaMontaje'),
+			'FotoURL_dron' => "http://localhost/CARTUM/imgdrones/".$config['file_name'].$data['file_ext'],
 			'Fecha_Retirada_dron' => $this->input->post('fechaRetirada'),
-			//La url de la imagen no se actualiza porque siempre va a ser la misma
+			
 		);
 
 		//Borramos los datos del array si estan vacios para no actualizar un blanco
@@ -93,6 +94,10 @@ class EditarDron_controller extends CI_Controller {
 	 		}
 	 		if($this->input->post('fechaRetirada')==""){
 	 			unset($datos['Fecha_Retirada_dron']);
+	 		}
+	 		//Si la extension esta vacia significa que el user no subio ninguna imagen y por tanto no se actualiza
+	 		if($data['file_ext'] == ''){
+	 			unset($datos['FotoURL_dron']);
 	 		}
 	 		//Comprobamos que el array no este vacio y tengamos datos que actualizar
 			if(empty($datos)){

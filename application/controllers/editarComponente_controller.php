@@ -71,6 +71,7 @@ class EditarComponente_controller extends CI_Controller {
 			'Fecha_Compra' => $this->input->post('fechaCompra'),
 			'Activo_Inactivo' => $this->input->post('activo_inactivo'),
 			'idDronActual' => $this->input->post('idDron'),
+			'FotoURL_componente' => "http://localhost/CARTUM/imgcomponentes/".$config['file_name'].$data['file_ext'],
 			'Fecha_Retirada' => $this->input->post('fechaRetirada')
 		);
 
@@ -101,6 +102,10 @@ class EditarComponente_controller extends CI_Controller {
 	 		}
 	 		if($this->input->post('idDron')==""){
 	 			unset($datos['idDronActual']);
+	 		}
+	 		//Si la extension esta vacia significa que el user no subio ninguna imagen y por tanto no se actualiza
+	 		if($data['file_ext'] == ''){
+	 			unset($datos['FotoURL_componente']);
 	 		}
 	 		//Comprobamos que el array no este vacio y tengamos datos que actualizar
 			if(empty($datos)){

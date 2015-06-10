@@ -52,7 +52,7 @@ class EditProfile_controller extends CI_Controller {
 			$datos = array(
 				'correo_electronico' => $this->input->post('correo'),
 	 			'telefono_usuario' => $this->input->post('telefono'),
-				//La URl de la imagen no la actualizamos poque va a ser la misma
+	 			'FotoURL_usuario' => "http://localhost/CARTUM/imguser/".$config['file_name'].$data['file_ext'],
 	 			'contraseña' => $passSha1
 	 		);
 
@@ -65,6 +65,10 @@ class EditProfile_controller extends CI_Controller {
 	 		}
 	 		if($this->input->post('password')==""){
 	 			unset($datos['contraseña']);
+	 		}
+	 		//Si la extension esta vacia significa que el user no subio ninguna imagen y por tanto no se actualiza
+	 		if($data['file_ext'] == ''){
+	 			unset($datos['FotoURL_usuario']);
 	 		}
 			//Comprobamos que el array no este vacio y tengamos datos que actualizar
 			if(empty($datos)){
