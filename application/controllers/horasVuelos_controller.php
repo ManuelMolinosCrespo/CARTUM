@@ -13,13 +13,15 @@ class HorasVuelos_controller extends CI_Controller {
 
 	public function index() {
 		$this->load->view('horasVuelos');
+		$this->session->set_userdata('idDronHorasVuelos', $this->uri->segment(3));
 	}
 
 	public function recibirDatos(){
 		$datos = array(
-	 		'idDron' => $this->uri->segment(3),
+	 		'idDron' => $id = $this->session->userdata('idDronHorasVuelos'),
 	 		'horas' => $this->input->post('horas_vuelo')
 	 		);
+		$this->horasVuelos_model->incrementarHorasVuelo($datos);
 	}
 
 
