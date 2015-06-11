@@ -50,7 +50,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<br>
 				<div class="form-group color-letter">
 					<?= form_label('ID del Dron Actual', 'idDron')?>
-					<?= form_input('idDron')?>		
+					<br>
+					<?php
+			                if(!empty($drones)) {
+			                	$desplegableDron[""] = "Ningún dron seleccionado";
+			                	foreach ($drones as $item) {
+			                		$desplegableDron[$item -> idDron] = $item -> idDron;
+			                	}
+			                } else {
+			                	$desplegableDron = "";
+			                }
+					?>	
+					<?= form_dropdown('idDron', $desplegableDron)?>		
 				</div>
 				<br>
 				<div class="form-group color-letter">
