@@ -33,11 +33,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<iframe src="https://www.google.com/calendar/embed?src=unileon.es_27bqbqavp9hmqc43ciqvqkrvcs%40group.calendar.google.com&ctz=Europe/Madrid" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 		</div> 
 		
-		<div class="row">
+		<div class="container-fluid">
 			<h3 class="color-letter">Tareas Pendientes</h3>
 			<hr>
 		</div>
-		<input class="btn btn-default button-confirm col-md-offset-4 col-xs-offset-4 color-letter" type="button" value="Editar Tareas">
+		<a href="#" class="btn btn-default button-confirm col-md-offset-2 col-xs-offset-2 color-letter" type="button">Editar Tareas</a>
+		<a href="<?php echo base_url()?>/index.php/addTarea_controller/index" class="btn btn-default button-confirm col-md-offset-2 col-xs-offset-2 color-letter" type="button">Agregar Tareas</a>
+		<a href="#" class="btn btn-default button-confirm col-md-offset-2 col-xs-offset-2 color-letter" type="button">Eliminar Tareas</a>
 	</div>
 </body>
 </html>
