@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="es">
 <head>
 	<meta charset="utf-8">
-	<title>Inventario</title>
+	<title>Drones</title>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
       rel="stylesheet" type="text/css">
       <link href="<?php echo base_url(); ?>css/style.css"
@@ -20,10 +20,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<nav>
 		<ul class="nav nav-pills nav-justified">
-			<li><a href="<?php echo base_url(); ?>index.php/calendar_controller/index" class="color-letter">Calendario</a></li>
+			<li><a href="<?php echo base_url(); ?>index.php/calendar_controller/index" class="color-letter">Tareas</a></li>
 			<li><a href="<?php echo base_url(); ?>index.php/profile_controller/index" class="color-letter">Perfil</a></li>
 			<li><a href="<?php echo base_url(); ?>index.php/inventory_controller/index" class="color-letter">Inventario</a></li>
-			<li><a href="#" class="color-letter">Mantenimiento</a></li>
 			<li><a href="#" class="color-letter">Normativa</a></li>
 			<li><a href="#" class="color-letter">Vuelos</a></li>
 		</ul>

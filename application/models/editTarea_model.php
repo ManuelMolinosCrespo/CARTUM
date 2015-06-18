@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class AddTarea_model extends CI_Model {
-	function AddTarea_model(){
+class EditTarea_model extends CI_Model {
+	function EditTarea_model(){
 		//Llamamos al contructor del padre
 		parent::__construct();
 		//Cargamos la base de datos

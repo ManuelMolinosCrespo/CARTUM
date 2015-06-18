@@ -114,7 +114,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<?php
 					} else {
 				?>
-						<?= form_submit('', 'Añadir')?>
+						<?= form_submit('', 'Modificar')?>
 				<?php
 					}
 				?>

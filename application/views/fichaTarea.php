@@ -32,73 +32,55 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			foreach ($datos as $item) { 
 		?>
 		<div class="row col-md-offset-1">
-			<h3 class="color-letter">Ficha Componente <a href="<?php echo base_url(); ?>index.php/editarComponente_controller/index/<?php echo $item -> idComponente?>" class="color-letter"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></h3>
+			<h3 class="color-letter">Ficha Tarea <a href="<?php echo base_url(); ?>index.php/editarTarea_controller/index/<?php echo $item -> idTareas?>" class="color-letter"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></h3>
 			<hr>
-		</div>
-		<div class = "col-md-2 col-xs-4 col-md-offset-1 col-xs-offset-1">
-			<img src="<?= $item -> FotoURL_componente ?>" class="img-responsive">
 		</div>
 		<div class="col-md-2 col-xs-4 col-sm-3 col-md-offset-1 col-xs-offset-1">
 			<b class="color-letter row">Nombre</b>
 			<br>
-			<?=$item -> Nombre_componente?>
+			<?=$item -> Nombre?>
 			<br>				
-			<b class="color-letter row">Fabricante</b>
+			<b class="color-letter row">Descripción</b>
 			<br>	
-			<?=$item -> Fabricante_componente?>
+			<?=$item -> Descripcion?>
 			<br>	
-			<b class="color-letter row">Categoría</b>
+			<b class="color-letter row">Fecha de Inicio</b>
 			<br>
-			<?=$item -> Nombre_categoria?>
+			<?=$item -> Fecha_Inicio?>
 			<br>
-			<b class="color-letter row">Prestaciones</b>
+			<b class="color-letter row">Fecha de Fin</b>
 			<br>
-			<?=$item -> Prestaciones_componente?>
-			<br>
-			<b class="color-letter row">Peso</b>
-			<br>
-			<?=$item -> Peso_componente?>
-			<br>
-			<b class="color-letter row">Horas de vuelo</b>
-			<br>
-			<?=$item -> Horas_Vuelo_componente?>		
+			<?=$item -> Fecha_Fin?>
+			<br>	
 		</div>
 		<div class="col-md-3 col-xs-7 col-sm-3 col-xs-offset-1 col-sm-offset-3 col-md-offset-3">
-			<b class="color-letter row">Estado</b>
+			<b class="color-letter row">ID Dron de la Tarea</b>
 			<br>
-			<?=$item -> Estado_componente?> 
+			<?=$item -> idDron_tareas?>
 			<br>
-			<b class="color-letter row">Fecha de Compra</b>
+			<b class="color-letter row">Nombre y Apellidos Usuario</b>
 			<br>
-			<?=$item -> Fecha_Compra?>
+			<!--<?=$item -> Nombre?> <?=$item -> Apellidos?>-->	
+			<b class="color-letter row">Resultado</b>
 			<br>
-			<b class="color-letter row">Fecha de Retirada</b>
+			<?=$item -> Resultado?> 
 			<br>
-			<?=$item -> Fecha_Retirada?>
+			<b class="color-letter row">Incidencia</b>
 			<br>
-			<b class="color-letter row">ID Dron Equipado</b>
+			<?=$item -> idIncidencia_tareas?>
 			<br>
-			<?=$item -> idDronActual?>
-			<br>
-			<b class="color-letter row">Activo o Inactivo</b>
-			<br>	
-			<?=$item -> Activo_Inactivo?>
-			<br>
-			<b class="color-letter row">Número de Vuelos Realizados</b>
-			<br>
-			<?=$item -> Numero_Vuelos_Realizados_componente?>
 		</div>					
 	</div>
 	<br>
 	<br>
 	<div class="row container-fluid">
 		<div class="row col-md-3 col-xs-7 col-sm-3 col-md-offset-1 col-xs-offset-1">
-			<h4><a class="color-letter" href="<?php echo base_url(); ?>index.php/inventory_controller/index"><span class="
-glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span> <u>Inventario</u> </a></h4>
+			<h4><a class="color-letter" href="<?php echo base_url(); ?>index.php/calendar_controller/index"><span class="
+glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span> <u>Tareas</u> </a></h4>
 		</div>
 		<div class="row col-md-3 col-xs-7 col-sm-3 col-md-offset-1 col-xs-offset-1 col-sm-offset-3 col-md-offset-3">
-			<h4><a class="color-letter" href="<?php echo base_url(); ?>index.php/fichaComponente_controller/eliminarComponente/<?php echo $item -> idComponente?>"><span class="
-glyphicon glyphicon-trash" aria-hidden="true"></span> <u>Eliminar Componente</u> </a></h4>
+			<h4><a class="color-letter" href="<?php echo base_url(); ?>index.php/fichaTarea_controller/eliminarTarea/<?php echo $item -> idTareas?>"><span class="
+glyphicon glyphicon-trash" aria-hidden="true"></span> <u>Eliminar Tarea</u> </a></h4>
 		</div>
 	</div>
 	<?php
