@@ -87,7 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			                		$desplegableDron[$item -> idDron] = $item -> idDron;
 			                	}
 			                } else {
-			                	$desplegableDron = "";
+			                	$desplegableDron[""] = "Ningún dron Disponible";
 			                }
 					?>	
 					<?= form_dropdown('idDron', $desplegableDron)?>		

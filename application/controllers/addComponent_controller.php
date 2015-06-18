@@ -62,6 +62,7 @@ class AddComponent_controller extends CI_Controller {
 			'foto' => "http://localhost/CARTUM/imgcomponentes/".$config['file_name'].$data['file_ext']
 
 	 	);
+	 		echo $this->input->post('idDron');
 	 			//Llamamos al modelo 
 	 		$this->addComponent_model->insertarComponenteSinDron($datos);
 			$this->obtenerdatos();

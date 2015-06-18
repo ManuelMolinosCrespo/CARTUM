@@ -58,7 +58,7 @@ class Login_controller extends CI_Controller {
 			);
 		
 		$resultadoEsperado = true;
-		echo $this->unit->run($this->login_model->obtenerPass($datos), $resultadoEsperado, $test_name);
+		//echo $this->unit->run($this->login_model->obtenerPass($datos), $resultadoEsperado, $test_name);
 
 
 		$test_name = "Test erroneo";
@@ -70,7 +70,7 @@ class Login_controller extends CI_Controller {
 			);
 		
 		$resultadoEsperado = false;
-		echo $this->unit->run($this->login_model->obtenerPass($datos), $resultadoEsperado, $test_name);
+		//echo $this->unit->run($this->login_model->obtenerPass($datos), $resultadoEsperado, $test_name);
 
 	}
 }
