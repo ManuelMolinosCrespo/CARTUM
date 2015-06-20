@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			foreach ($datos as $item) { 
 		?>
 		<div class="row col-md-offset-1">
-			<h3 class="color-letter">Ficha del Dron <a href="<?php echo base_url(); ?>index.php/editarDron_controller/index/<?php echo $item -> idDron?>" class="color-letter">  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a><a class="color-letter" href="<?php echo base_url(); ?>index.php/fichaDron_controller/incrementarVuelo/<?php echo $item -> idDron?>"><span class="
+			<h3 class="color-letter">Ficha del Dron <a href="<?php echo base_url(); ?>index.php/editarDron_controller/index/<?php echo $item -> idDron?>" class="color-letter">  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a><a class="color-letter" href="<?php echo base_url(); ?>index.php/componenteDron_controller/index/<?php echo $item -> idDron?>"><span class="
 glyphicon glyphicon-plane" aria-hidden="true"></span></a></h3>
 			<hr>
 		</div>
