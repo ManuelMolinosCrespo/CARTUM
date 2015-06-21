@@ -15,7 +15,11 @@ class AddComponent_controller extends CI_Controller {
 
 	public function index()
 	{
-		$this->mostrarCategoria();
+		if($this->session->userdata('Token')!= true){
+			$this->load->view('login');
+		}else{
+			$this->mostrarCategoria();
+		}
 	}
 
 	public function recibirdatos() {

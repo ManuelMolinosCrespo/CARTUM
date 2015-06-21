@@ -13,9 +13,14 @@ class EditarDron_controller extends CI_Controller {
 
 	public function index()
 	{
-		//$data['categorias'] = $this->categoria_model->mostrarTodasCategorias(); 
-		$this->load->view('editarDron');
-		$this->session->set_userdata('idDron', $this->uri->segment(3));
+		//Comprobamos que el user este autenticado
+		if($this->session->userdata('Token')!= true){
+			$this->load->view('login');
+		}else{
+			//$data['categorias'] = $this->categoria_model->mostrarTodasCategorias(); 
+			$this->load->view('editarDron');
+			$this->session->set_userdata('idDron', $this->uri->segment(3));
+		}
 		
 	}
 

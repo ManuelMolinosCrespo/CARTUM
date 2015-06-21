@@ -14,7 +14,11 @@ class AddDron_controller extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('addDron');
+		if($this->session->userdata('Token')!= true){
+			$this->load->view('login');
+		}else{
+			$this->load->view('addDron');
+		}
 	}
 
 	public function recibirdatos() {

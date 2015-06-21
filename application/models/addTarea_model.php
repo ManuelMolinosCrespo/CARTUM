@@ -22,4 +22,9 @@ class AddTarea_model extends CI_Model {
 				return false;
 		}
 	}
+
+	//Recibimos los datos del componente y los insertamos en la base de datos 
+	function insertarTarea($datos){
+		$this->db->insert('Tareas',array('Nombre' => $datos['Nombre'], 'Descripcion'=> $datos['Descripcion'],'Fecha_Inicio'=> $datos['Fecha_Inicio'],'Fecha_Fin'=> $datos['Fecha_Fin'],'DNI_Usuario_tareas'=> $datos['DNI_Usuario_tareas'],'idDron_tareas'=> $datos['idDron_tareas']));
+	}
 }

@@ -14,7 +14,12 @@ class Categoria_controller extends CI_Controller {
 
 	public function index()
 	{
-		$this->mostrarCategoria();
+		//Comprobamos que el user este autenticado
+		if($this->session->userdata('Token')!= true){
+			$this->load->view('login');
+		}else{
+			$this->mostrarCategoria();
+		}
 	}
 
 	public function insertarDatos() {

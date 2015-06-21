@@ -13,7 +13,12 @@ class AnadirCategoria_controller extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('añadirCategoria');
+		//Comprobamos que el user este autenticado
+		if($this->session->userdata('Token')!= true){
+			$this->load->view('login');
+		}else{
+			$this->load->view('añadirCategoria');
+		}
 	}
 
 	public function recibirdatos() {

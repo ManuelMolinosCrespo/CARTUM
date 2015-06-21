@@ -15,7 +15,11 @@ class AddTarea_controller extends CI_Controller {
 
 	public function index()
 	{
-		$this->mostrarDatos();
+		if($this->session->userdata('Token')!= true){
+			$this->load->view('login');
+		}else{
+			$this->mostrarDatos();
+		}
 	}
 
 	public function mostrarDatos(){
@@ -25,7 +29,21 @@ class AddTarea_controller extends CI_Controller {
 	}
 
 	public function recibirdatos(){
- 		
-	}
+ 
+		//Recibimos los datos de la vista
+	 		$datos = array(
+	 		'Nombre' => $this->input->post('nombre'),
+	 		'Descripcion' => $this->input->post('descripcion'),
+	 		'Fecha_Inicio' => $this->input->post('fechaInicio'),
+	 		'Fecha_Fin' => $this->input->post('fechaTope'),
+	 		'DNI_Usuario_tareas' => $this->input->post('idUsuario'),
+	 		'idDron_tareas' => $this->input->post('idDron')
+	 	);
+	 	
+		//Llamamos al modelo para insertarlos 
+	 	$this->addTarea_model->insertarTarea($datos);
+	 	//Llamamos a la vista del calendario
+	 	$this->load->view('calendar');
 
+	}
 }

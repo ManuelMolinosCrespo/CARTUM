@@ -15,6 +15,10 @@ class FichaTarea_controller extends CI_Controller {
 
 	public function index()
 	{
+		//Comprobamos que el user este autenticado
+		if($this->session->userdata('Token')!= true){
+			$this->load->view('login');
+		}
 	}
 
 	public function recibirdatos() {
@@ -29,7 +33,7 @@ class FichaTarea_controller extends CI_Controller {
 
 	public function obtenerdatos() {
 	 	//Llamamos al modelo 
-	 $data['datos'] = $this->calendar_model->obtenerComponentes(); 
+	 $data['datos'] = $this->calendar_model->obtenerTareas(); 
 	 $this->load->view('calendar',$data);
 	}
 

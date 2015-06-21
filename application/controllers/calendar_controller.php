@@ -13,7 +13,12 @@ class Calendar_controller extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('calendar');
+		//Comprobamos que el user este autenticado
+		if($this->session->userdata('Token')!= true){
+			$this->load->view('login');
+		}else{
+			$this->load->view('calendar');
+		}
 	}
 
 	// public function recibirdatos() {

@@ -15,6 +15,10 @@ class FichaDron_controller extends CI_Controller {
 
 	public function index()
 	{
+		//Comprobamos que el user este autenticado
+		if($this->session->userdata('Token')!= true){
+			$this->load->view('login');
+		}
 	}
 
 	public function recibirdatos() {
@@ -40,10 +44,11 @@ class FichaDron_controller extends CI_Controller {
 		$this->obtenerdatos();
 	}
 
-	public function incrementarVuelo(){
-		$id = $this->uri->segment(3);
-		$this->fichaDron_model->incrementarVuelo($id);
-		$this->obtenerdatos();
+//SE MODIFICA PARA QUE SE AÑADA AUTOMATICAMEN AL AÑADIR HORAS 
+	//public function incrementarVuelo(){
+	//	$id = $this->uri->segment(3);
+	//	$this->fichaDron_model->incrementarVuelo($id);
+	//	$this->obtenerdatos();
 		//Llamamos a la vista
-	}
+	//}
 }

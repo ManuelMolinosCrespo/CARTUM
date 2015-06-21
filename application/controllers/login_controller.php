@@ -39,6 +39,7 @@ class Login_controller extends CI_Controller {
 			//Llamamos a la clase que realiza los test de caja blanca
 			$this->testCajaBlanca($datos);
 			$this->mostrarDatosUser();
+			$this->session->set_userdata('Token', true);
 		}else{
 			$this->load->view('login');
 		}

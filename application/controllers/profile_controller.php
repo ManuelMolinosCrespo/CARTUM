@@ -13,7 +13,13 @@ class Profile_controller extends CI_Controller {
 
 	public function index()
 	{
-		$this->mostrarDatosUser();
+		if($this->session->userdata('Token')!= true){
+			$this->load->view('login');
+		}else{
+			$this->mostrarDatosUser();
+		}
+		
+
 	}
 	
 	public function cargar_editar()

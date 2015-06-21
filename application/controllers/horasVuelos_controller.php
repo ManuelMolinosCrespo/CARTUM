@@ -14,8 +14,13 @@ class HorasVuelos_controller extends CI_Controller {
 	}
 
 	public function index() {
-		$this->load->view('horasVuelos');
-		$this->session->set_userdata('idDronHorasVuelos', $this->uri->segment(3));
+		//Comprobamos que el user este autenticado
+		if($this->session->userdata('Token')!= true){
+			$this->load->view('login');
+		}else{
+			$this->load->view('horasVuelos');
+			$this->session->set_userdata('idDronHorasVuelos', $this->uri->segment(3));
+		}
 	}
 
 	public function obtenerdatos($id) {	

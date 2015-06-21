@@ -12,10 +12,10 @@ class FichaTarea_model extends CI_Model {
 
 	public function obtenerFicha($id){
 	 //Realizamos la consulta de los datos 
-      $this->db->select('k.Nombre_categoria,c.Nombre_componente,c.Fabricante_componente,c.Prestaciones_componente,c.Peso_componente,c.Horas_Vuelo_componente,c.Fecha_Compra,c.Fecha_Retirada,c.Numero_Vuelos_Realizados_componente,c.Activo_Inactivo,c.Estado_componente,c.idDronActual,c.idComponente,c.FotoURL_componente');
-      $this->db->from('Componentes c');
-      $this->db->join('Categorias_Componentes k', 'c.categoria = k.idCategoria');
-      $this->db->where('idComponente',$id);
+      $this->db->select('t.Nombre,t.Descripcion,t.Fecha_Inicio,t.Fecha_Fin,t.idDron_tareas,u.Nombre_usuario,u.Apellidos_usuario,t.Resultado');
+      $this->db->from('Tareas t');
+      $this->db->join('Usuarios u', 't.DNI_Usuario_tareas = u.DNI_Usuario');
+      $this->db->where('idTareas',$id);
       $query= $this->db->get();
 		if($query->num_rows()> 0){
 			
@@ -27,8 +27,8 @@ class FichaTarea_model extends CI_Model {
 			}
 	}
 
-	function eliminarComponente($id){
-		$this->db->where('idComponente',$id);
-		return $this->db->delete('componentes');
+	public function eliminarTarea($id){
+		$this->db->where('idTareas',$id);
+		return $this->db->delete('Tareas');
 	}
 }

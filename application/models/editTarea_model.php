@@ -22,4 +22,12 @@ class EditTarea_model extends CI_Model {
 				return false;
 		}
 	}
+
+	public function editarTarea($datos){
+		//Actualizamos en funcion del id del componente
+		$this->db->where('idTareas',$datos['id']);
+        $this->db->update('Tareas', $datos); 
+	}
+
+	
 }

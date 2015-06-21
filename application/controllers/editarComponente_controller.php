@@ -14,10 +14,15 @@ class EditarComponente_controller extends CI_Controller {
 
 	public function index()
 	{
-		$data['categorias'] = $this->categoria_model->mostrarTodasCategorias(); 
-	 	$data['drones'] = $this->editarComponente_model->obtenerTodosDrones(); 
-		$this->load->view('editarComponente',$data);
-		$this->session->set_userdata('idComponente', $this->uri->segment(3));
+		//Comprobamos que el user este autenticado
+		if($this->session->userdata('Token')!= true){
+			$this->load->view('login');
+		}else{
+			$data['categorias'] = $this->categoria_model->mostrarTodasCategorias(); 
+	 		$data['drones'] = $this->editarComponente_model->obtenerTodosDrones(); 
+			$this->load->view('editarComponente',$data);
+			$this->session->set_userdata('idComponente', $this->uri->segment(3));
+		}
 		
 	}
 	

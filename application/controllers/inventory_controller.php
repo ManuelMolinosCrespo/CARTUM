@@ -9,11 +9,17 @@ class Inventory_controller extends CI_Controller {
 		
 		parent::__construct();
 		$this->load->model('inventory_model');
-		$this->obtenerdatos();
+		
 	}
 
 	public function index()
 	{
+		//Comprobamos que el user este autenticado
+		if($this->session->userdata('Token')!= true){
+			$this->load->view('login');
+		}else{
+			$this->obtenerdatos();
+		}
 	}
 
 	public function obtenerdatos() {
