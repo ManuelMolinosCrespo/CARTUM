@@ -20,14 +20,13 @@ class IncidenciaTarea_model extends CI_Model {
 		$this->db->where('idTareas',$datos['idTareas']);
         $this->db->update('Tareas', $datos); 
 	}
-	}
 
-	public function obtenerIncidencia(){
+	public function obtenerIncidencia($id){
 		//Realizamos la consulta de todos los datos
       $this->db->select('i.idIncidencia,i.Resumen');
       $this->db->from('Incidencias i');
       $this->db->join('Tareas t', 'i.idIncidencia = t.idIncidencia_tareas');
-      $this->db->where('idComponente',$id);
+      $this->db->where('idIncidencia',$id);
      
       $query= $this->db->get();
 		if($query->num_rows()> 0){
@@ -35,8 +34,8 @@ class IncidenciaTarea_model extends CI_Model {
 			$resultado = $query->result();
 			
 			return $resultado;
-			}else{
+		}else{
 				return false;
-			}
+		}
 	}
 }

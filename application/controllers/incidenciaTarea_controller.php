@@ -19,7 +19,7 @@ class IncidenciaTarea_controller extends CI_Controller {
 		if($this->session->userdata('Token')!= true){
 			$this->load->view('login');
 		}else{
-			$this->load->view('incidenciaTarea');
+			$this->obtenerdatos($this->uri->segment(3));
 		}
 	}
 
