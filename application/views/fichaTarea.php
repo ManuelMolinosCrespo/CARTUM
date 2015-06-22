@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			foreach ($datos as $item) { 
 		?>
 		<div class="row col-md-offset-1">
-			<h3 class="color-letter">Ficha Tarea <a href="<?php echo base_url(); ?>index.php/editarTarea_controller/index/<?php echo $item -> idTareas?>" class="color-letter"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></h3>
+			<h3 class="color-letter">Ficha Tarea <a href="<?php echo base_url(); ?>index.php/editarTarea_controller/index/<?php echo $this->uri->segment(3)?>" class="color-letter"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></h3>
 			<hr>
 		</div>
 		<div class="col-md-2 col-xs-4 col-sm-3 col-md-offset-1 col-xs-offset-1">
@@ -60,15 +60,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<br>
 			<b class="color-letter row">Nombre y Apellidos Usuario</b>
 			<br>
-			<!--<?=$item -> Nombre?> <?=$item -> Apellidos?>-->	
+			<?=$item -> Nombre_usuario?> <?=$item -> Apellidos_usuario?>
+			<br>
 			<b class="color-letter row">Resultado</b>
 			<br>
 			<?=$item -> Resultado?> 
 			<br>
-			<b class="color-letter row">Incidencia</b>
+		<!--	<b class="color-letter row">Incidencia</b>
 			<br>
 			<?=$item -> idIncidencia_tareas?>
-			<br>
+			<br> -->
 		</div>					
 	</div>
 	<br>
@@ -79,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span> <u>Tareas</u> </a></h4>
 		</div>
 		<div class="row col-md-3 col-xs-7 col-sm-3 col-md-offset-1 col-xs-offset-1 col-sm-offset-3 col-md-offset-3">
-			<h4><a class="color-letter" href="<?php echo base_url(); ?>index.php/fichaTarea_controller/eliminarTarea/<?php echo $item -> idTareas?>"><span class="
+			<h4><a class="color-letter" href="<?php echo base_url(); ?>index.php/fichaTarea_controller/eliminarTarea/<?php echo $this->uri->segment(3)?>"><span class="
 glyphicon glyphicon-trash" aria-hidden="true"></span> <u>Eliminar Tarea</u> </a></h4>
 		</div>
 	</div>

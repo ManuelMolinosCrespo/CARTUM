@@ -10,6 +10,7 @@ class AddTarea_controller extends CI_Controller {
 		parent::__construct();
 		$this->load->model('addComponent_model');
 		$this->load->model('addTarea_model');
+		$this->load->model('calendar_model');
 		
 	}
 
@@ -28,6 +29,13 @@ class AddTarea_controller extends CI_Controller {
 	 	$this->load->view('addTarea',$data);
 	}
 
+	public function obtenerdatos() {
+	
+	 	//Llamamos al modelo 
+	 $data['datos'] = $this->calendar_model->obtenerTareas(); 
+	 $this->load->view('calendar',$data);
+	}
+
 	public function recibirdatos(){
  
 		//Recibimos los datos de la vista
@@ -43,7 +51,7 @@ class AddTarea_controller extends CI_Controller {
 		//Llamamos al modelo para insertarlos 
 	 	$this->addTarea_model->insertarTarea($datos);
 	 	//Llamamos a la vista del calendario
-	 	$this->load->view('calendar');
+	 	$this->obtenerdatos();
 
 	}
 }

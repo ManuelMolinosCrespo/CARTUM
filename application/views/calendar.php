@@ -37,21 +37,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<hr>
 		</div>
 		<br>
+		<table class="table table-condensed">
 		<?php
 			if(!empty($datos)) {
 				foreach ($datos as $item) { 
 		?>
+
 			<tr>
 			<td> <?=$item -> Nombre?> </td> 
 			<td> <?=$item -> Fecha_Inicio?> </td> 
-			<!--Necesito que a partir del DNI de la tarea me saques el nombre y apellidos del tio-->
-			<!--<td> <?=$item -> Nombre?> <?=$item -> Apellidos?> </td>-->
-			<td> <a href="<?php echo base_url(); ?>index.php/fichaTarea_controller/recibirdatos/<?php echo $item -> idTarea?>" class="color-letter"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a> </td>
+			<td> <?=$item -> Nombre_usuario?>  <?=$item -> Apellidos_usuario?> </td>
+			<td> <a href="<?php echo base_url(); ?>index.php/fichaTarea_controller/recibirdatos/<?php echo $item -> idTareas?>" class="color-letter"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a> </td>
 			</tr>
 		<?php
 				}
 			}
 		?>
+		</table>
+		<br>
 		<a href="<?php echo base_url()?>/index.php/addTarea_controller/index" class="btn btn-default button-confirm col-md-offset-2 col-xs-offset-2 color-letter" type="button"><span class="
 glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar Tareas</a>
 	</div>

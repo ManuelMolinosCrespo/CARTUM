@@ -10,6 +10,7 @@ class EditTarea_controller extends CI_Controller {
 		parent::__construct();
 		$this->load->model('addComponent_model');
 		$this->load->model('editTarea_model');
+		$this->load->model('calendar_model');
 		//Guardamos el id de la tarea que nos pasan
 		$this->session->set_userdata('idTareas', $this->uri->segment(3));
 		
@@ -21,7 +22,7 @@ class EditTarea_controller extends CI_Controller {
 		if($this->session->userdata('Token')!= true){
 			$this->load->view('login');
 		}else{
-			$this->mostrarDatos();
+			$this->load->view('editarTarea');
 		}
 	}
 
@@ -65,7 +66,14 @@ class EditTarea_controller extends CI_Controller {
  			}
 	 
 	 	//Llamamos a la vista del calendario  indiferentemente si hemos actualizado algo o no
-	 	$this->load->view('calendar');
+	 	$this->obtenerdatos();
+	}
+
+	public function obtenerdatos() {
+	
+	 	//Llamamos al modelo 
+	 $data['datos'] = $this->calendar_model->obtenerTareas(); 
+	 $this->load->view('calendar',$data);
 	}
 
 }

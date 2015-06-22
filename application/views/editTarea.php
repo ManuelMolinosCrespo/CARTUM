@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</nav>
 	<div class="container-fluid">
 		<div class="row col-md-offset-1">
-			<h3 class="color-letter">Añadir Tarea</h3>
+			<h3 class="color-letter">Editar Tarea</h3>
 			<hr>
 		</div>
 		<div class="row">

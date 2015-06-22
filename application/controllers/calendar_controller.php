@@ -8,7 +8,7 @@ class Calendar_controller extends CI_Controller {
 	function Calendar_controller(){
 		
 		parent::__construct();
-		// $this->load->model('profile_model');
+		$this->load->model('calendar_model');
 	}
 
 	public function index()
@@ -17,18 +17,14 @@ class Calendar_controller extends CI_Controller {
 		if($this->session->userdata('Token')!= true){
 			$this->load->view('login');
 		}else{
-			$this->load->view('calendar');
+			$this->obtenerdatos();
 		}
 	}
 
-	// public function recibirdatos() {
-	// 	//Recogemos el user, y la pass y la encriptamos
-	// 	$passSha1 = sha1($this->input->post('password'));
-	// 	$datos = array(
-	// 		'usuario' => $this->input->post('usuario'),
-	// 		'password' => $passSha1
-	// 		);
-	// 	//Llamamos al modelo 
-	// 	$this->login_model->obtenerPass($datos);
-	// }
+	public function obtenerdatos() {
+	
+	 	//Llamamos al modelo 
+	 $data['datos'] = $this->calendar_model->obtenerTareas(); 
+	 $this->load->view('calendar',$data);
+	}
 }
