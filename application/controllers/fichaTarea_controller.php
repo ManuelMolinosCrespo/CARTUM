@@ -10,7 +10,7 @@ class FichaTarea_controller extends CI_Controller {
 		
 		parent::__construct();
 		 $this->load->model('fichaTarea_model');
-		 $this->load->model('inventory_model');
+		 $this->load->model('calendar_model');
 	}
 
 	public function index()
