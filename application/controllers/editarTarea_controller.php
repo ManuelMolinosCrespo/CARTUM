@@ -13,7 +13,6 @@ class EditarTarea_controller extends CI_Controller {
 		$this->load->model('addComponent_model');
 		$this->load->model('addTarea_model');
 		//Guardamos el id de la tarea que nos pasan
-		$this->session->set_userdata('idTareas', $this->uri->segment(3));
 		
 	}
 
@@ -26,14 +25,15 @@ class EditarTarea_controller extends CI_Controller {
 			$data['usuarios'] = $this->addTarea_model->obtenerUsuarios(); 
 			$data['drones'] = $this->addComponent_model->obtenerTodosDrones(); 
 			$this->load->view('editarTarea',$data);
+			$this->session->set_userdata('idTareas', $this->uri->segment(3));
+			echo $this->uri->segment(3);
 		}
 	}
 
 	public function recibirdatos(){
-
  		//Recibimos los datos de la vista
 	 		$datos = array(
-	 		'id' => $this->uri->segment(3),
+	 		'idTareas' => $this->session->userdata('idTareas'),
 	 		'Nombre' => $this->input->post('nombre'),
 	 		'Descripcion' => $this->input->post('descripcion'),
 	 		'Fecha_Inicio' => $this->input->post('fechaInicio'),
@@ -65,7 +65,7 @@ class EditarTarea_controller extends CI_Controller {
 
 			}else{
 		//Llamamos al modelo 
- 			$this->editTarea_model->editarTarea($datos);
+ 			$this->editarTarea_model->editarTarea($datos);
  			}
 	 
 	 	//Llamamos a la vista del calendario  indiferentemente si hemos actualizado algo o no

@@ -25,7 +25,7 @@ class EditarTarea_model extends CI_Model {
 
 	public function editarTarea($datos){
 		//Actualizamos en funcion del id del componente
-		$this->db->where('idTareas',$datos['id']);
+		$this->db->where('idTareas',$datos['idTareas']);
         $this->db->update('Tareas', $datos); 
 	}
 

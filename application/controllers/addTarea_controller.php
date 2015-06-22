@@ -47,7 +47,6 @@ class AddTarea_controller extends CI_Controller {
 	 		'DNI_Usuario_tareas' => $this->input->post('idUsuario'),
 	 		'idDron_tareas' => $this->input->post('idDron')
 	 	);
-	 	
 		//Llamamos al modelo para insertarlos 
 	 	$this->addTarea_model->insertarTarea($datos);
 	 	//Llamamos a la vista del calendario

@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</nav>
 	<div class="container clearfix">	
 		<div class="responsive-iframe-container">
-			<iframe src="https://www.google.com/calendar/embed?src=unileon.es_27bqbqavp9hmqc43ciqvqkrvcs%40group.calendar.google.com&ctz=Europe/Madrid" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+	
 		</div> 
 		
 		<div class="container-fluid">

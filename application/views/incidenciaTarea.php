@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<hr>
 		</div>
 		<div class="row">
-				<?= form_open_multipart("/addTarea_controller/recibirdatos") ?>
+				<?= form_open_multipart("/incidenciaTarea_controller/recibirdatos") ?>
 			
 			<div class = "col-md-1 col-xs-7 col-md-offset-1 col-xs-offset-2">
 				<div class="form-group color-letter">
@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						foreach ($datos as $item) {
 							$resumen = $item -> Resumen;
 							$descripcion = array(
-				           		'name'  => 'fechaIncidencia',
+				           		'name'  => 'resumen',
 				           		'value' => $resumen
 			           		);
 						}
