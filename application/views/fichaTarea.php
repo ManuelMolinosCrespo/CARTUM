@@ -66,10 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<br>
 			<?=$item -> Resultado?> 
 			<br>
-		<!--	<b class="color-letter row">Incidencia</b>
-			<br>
-			<?=$item -> idIncidencia_tareas?>
-			<br> -->
+			<a href="<?php echo base_url(); ?>index.php/incidenciaTarea_controller/index/<?php echo $this->uri->segment(3)?>" class="btn btn-default button-confirm col-md-offset-2 col-xs-offset-2 color-letter" type="button"> Incidencia </a>
 		</div>					
 	</div>
 	<br>
