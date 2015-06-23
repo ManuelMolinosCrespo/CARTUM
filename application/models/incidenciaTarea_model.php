@@ -15,10 +15,10 @@ class IncidenciaTarea_model extends CI_Model {
         $this->db->update('Incidencias', $datos); 
 	}
 
-	public function insertarIncidencia($datos){
+	public function insertarIncidencia($datos,$id){
 		$this->db->insert('Incidencias',array('Fecha' => $datos['Fecha'], 'Resumen'=> $datos['Resumen']));
-		$this->db->where('idTareas',$datos['idTareas']);
-        $this->db->update('Tareas', $datos); 
+		//Actualizamos el id de incidencias de la tarea, con el id de la ultima incidencia insertada
+		$query = $this->db->query("UPDATE Tareas SET idIncidencia_tareas = ".$this->db->insert_id()." WHERE idtareas =".$id." "); 
 	}
 
 	public function obtenerIncidencia($id){
@@ -27,15 +27,16 @@ class IncidenciaTarea_model extends CI_Model {
       $this->db->from('Incidencias i');
       $this->db->join('Tareas t', 'i.idIncidencia = t.idIncidencia_tareas');
       $this->db->where('idIncidencia',$id);
-     
+
       $query= $this->db->get();
+		
 		if($query->num_rows()> 0){
-			
 			$resultado = $query->result();
 			
 			return $resultado;
 		}else{
-				return false;
+				
+			return false;
 		}
 	}
 }

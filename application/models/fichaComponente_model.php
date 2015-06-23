@@ -20,7 +20,13 @@ class FichaComponente_model extends CI_Model {
 		if($query->num_rows()> 0){
 			
 			$resultado = $query->result();
-			
+				foreach ($resultado as $item) { 
+	 	if($item -> Activo_Inactivo == '0'){
+	 		$item -> Activo_Inactivo = 'Inactivo';
+	 	}else{
+	 		$item -> Activo_Inactivo = 'Activo';
+	 	}
+	 }
 			return $resultado;
 			}else{
 				return false;

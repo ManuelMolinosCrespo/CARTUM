@@ -51,8 +51,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<?= form_label('Incidencia', 'incidencia')?>
 					<br>
 					<?php
-					if(!empty($datos)) {
-						foreach ($datos as $item) {
+					if(!empty($data)) {
+						foreach ($data as $item) {
 							$resumen = $item -> Resumen;
 							$descripcion = array(
 				           		'name'  => 'resumen',
@@ -60,12 +60,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			           		);
 						}
 			        } else {
-			        	$descripcion = array(
-				           		'name'  => 'resumen'
-			           		);
+			        	$descripcion = '';
 			        }
 					?>	
-					<?= form_textarea('incidencia', $descripcion)?>		
+					<?= form_textarea('resumen', $descripcion)?>		
 				</div>
 				<br>
 				<br>

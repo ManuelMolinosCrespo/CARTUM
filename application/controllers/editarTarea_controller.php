@@ -26,7 +26,6 @@ class EditarTarea_controller extends CI_Controller {
 			$data['drones'] = $this->addComponent_model->obtenerTodosDrones(); 
 			$this->load->view('editarTarea',$data);
 			$this->session->set_userdata('idTareas', $this->uri->segment(3));
-			echo $this->uri->segment(3);
 		}
 	}
 

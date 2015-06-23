@@ -18,6 +18,14 @@ class InventoryDrones_model extends CI_Model {
 		if($query->num_rows()> 0){
 			
 			$resultado = $query->result();
+		//Cambiamos el aspecto del texto
+	foreach ($resultado as $item) { 
+	 	if($item -> Estado_dron == '0'){
+	 		$item -> Estado_dron = 'Inactivo';
+	 	}else{
+	 		$item -> Estado_dron = 'Activo';
+	 	}
+	 }
 			
 			return $resultado;
 			}else{

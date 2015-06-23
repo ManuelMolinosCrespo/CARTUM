@@ -19,7 +19,14 @@ class Inventory_model extends CI_Model {
 		if($query->num_rows()> 0){
 			
 			$resultado = $query->result();
-			
+				//Cmabiamos el aspecto del texto
+			foreach ($resultado as $item) { 
+	 	if($item -> Estado_componente == '0'){
+	 		$item -> Estado_componente = 'Inactivo';
+	 	}else{
+	 		$item -> Estado_componente = 'Activo';
+	 	}
+	 }
 			return $resultado;
 			}else{
 				return false;

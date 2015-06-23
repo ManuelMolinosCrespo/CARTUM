@@ -19,7 +19,8 @@ class IncidenciaTarea_controller extends CI_Controller {
 		if($this->session->userdata('Token')!= true){
 			$this->load->view('login');
 		}else{
-			$this->obtenerdatos($this->uri->segment(3));
+			$this->session->set_userdata('idTareasIncidencias', $this->uri->segment(3));
+			$this->obtenerdatos($this->session->userdata('idTareasIncidencias'));
 		}
 	}
 
@@ -28,16 +29,17 @@ public function recibirdatos(){
  
 		//Recibimos los datos de la vista
 	 		$datos = array(
+	 		'idTareas' =>$this->session->userdata('idTareasIncidencias'),
 	 		'Fecha' => $this->input->post('fechaIncidencia'),
 	 		'Resumen' => $this->input->post('resumen'),
 	 	);
 		//Llamamos al modelo para insertarlos 
-	 	$this->incidenciaTarea_model->insertarIncidencia($datos);
+	 	$this->incidenciaTarea_model->insertarIncidencia($datos,$datos['idTareas']);
 	 }
 
 public function obtenerdatos($id){
 	 	//Llamamos al modelo 
-	 $data['datos'] = $this->incidenciaTarea_model->obtenerIncidencia($id); 
+	 $data['data'] = $this->incidenciaTarea_model->obtenerIncidencia($id); 
 	 $this->load->view('incidenciaTarea',$data);
 	}	 
 }
