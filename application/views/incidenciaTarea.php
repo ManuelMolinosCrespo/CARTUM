@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="row">
 				<?= form_open_multipart("/incidenciaTarea_controller/recibirdatos") ?>
 			
-			<div class = "col-md-1 col-xs-7 col-md-offset-1 col-xs-offset-2">
+			<div class = "col-md-3 col-xs-7 col-md-offset-1 col-xs-offset-2">
 				<div class="form-group color-letter">
 					<?= form_label('Fecha de la Incidencia', 'fechaIncidencia')?>
 					<?php
@@ -51,13 +51,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<?= form_label('Incidencia', 'incidencia')?>
 					<br>
 					<?php
-					if(!empty($data)) {
-						foreach ($data as $item) {
-							$resumen = $item -> Resumen;
-							$descripcion = array(
-				           		'name'  => 'resumen',
-				           		'value' => $resumen
-			           		);
+						if(!empty($data)) {
+							foreach ($data as $item) {
+								$descripcion = '';
+					?>
+					<p><b>Incidencias anteriores</b></p>
+					<?= $item -> Resumen ?>
+					<br>
+					<br>
+					<p><b>Incidencia actual</b></p>
+					<br>
+					<?php
 						}
 			        } else {
 			        	$descripcion = '';

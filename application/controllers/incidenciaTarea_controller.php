@@ -11,6 +11,7 @@ class IncidenciaTarea_controller extends CI_Controller {
 		parent::__construct();
 		$this->load->model('calendar_model');
 		$this->load->model('incidenciaTarea_model');
+		$this->load->model('fichaTarea_model');
 		
 	}
 
@@ -28,7 +29,7 @@ class IncidenciaTarea_controller extends CI_Controller {
 public function recibirdatos(){
  
 		//Recibimos los datos de la vista
-	 		$datos = array(
+	 	$datos = array(
 	 		'idTareas' =>$this->session->userdata('idTareasIncidencias'),
 	 		'Fecha' => $this->input->post('fechaIncidencia'),
 	 		'Resumen' => $this->input->post('resumen'),
@@ -37,9 +38,18 @@ public function recibirdatos(){
 	 	$this->incidenciaTarea_model->insertarIncidencia($datos,$datos['idTareas']);
 	 }
 
-public function obtenerdatos($id){
-	 	//Llamamos al modelo 
-	 $data['data'] = $this->incidenciaTarea_model->obtenerIncidencia($id); 
-	 $this->load->view('incidenciaTarea',$data);
+	public function obtenerdatos($id){
+		 	//Llamamos al modelo 
+		 $data['data'] = $this->incidenciaTarea_model->obtenerIncidencia($id); 
+		 $this->load->view('incidenciaTarea',$data);
 	}	 
+	public function recibirdatos() {
+		//Recogemos el id y lo pasamos al modelo
+		$id = $this->uri->segment(3);
+		
+		//Llamamos al modelo 
+	 	$data['datos'] = $this->fichaTarea_model->obtenerFicha($id);
+		
+		$this->load->view('fichaTarea',$data);
+	}
 }
