@@ -79,8 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<br>
 				<br>
-				<a href="<?php echo base_url(); ?>index.php/fichaTarea_controller/index/<?php $this->uri->segment(3)?>" class="color-letter"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Volver atrás</a>
-			
+				
 		</div>
 	</div>
 </body>
