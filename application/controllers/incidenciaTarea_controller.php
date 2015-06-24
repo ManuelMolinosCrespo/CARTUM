@@ -35,8 +35,15 @@ public function recibirdatos(){
 	 		'Resumen' => $this->input->post('resumen'),
 	 	);
 		//Llamamos al modelo para insertarlos 
-	 	$this->incidenciaTarea_model->insertarIncidencia($datos,$datos['idTareas']);
-		$this->volverAnterior();
+		if($this->incidenciaTarea_model->obtenerIncidencia($this->session->userdata('idTareasIncidencias'))==false){
+			$this->incidenciaTarea_model->insertarIncidencia($datos,$datos['idTareas']);
+			$this->volverAnterior();
+		}else{
+			$this->incidenciaTarea_model->editarIncidencia($datos);
+			$this->volverAnterior();
+		}
+	 	
+		
 	 }
 
 	public function obtenerdatos($id){
@@ -44,13 +51,12 @@ public function recibirdatos(){
 		 $data['data'] = $this->incidenciaTarea_model->obtenerIncidencia($id); 
 		 $this->load->view('incidenciaTarea',$data);
 	}	 
+
 	public function volverAnterior() {
 		//Recogemos el id y lo pasamos al modelo
 		$id =$this->session->userdata('idTareasIncidencias');
-		
-		//Llamamos al modelo 
-	 	$data['datos'] = $this->fichaTarea_model->obtenerFicha($id);
-		
+
+	 $data['datos'] = $this->fichaTarea_model->obtenerFicha($id);
 		$this->load->view('fichaTarea',$data);
 	}
 }

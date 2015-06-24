@@ -27,10 +27,10 @@ class FichaComponente_model extends CI_Model {
 	 		$item -> Activo_Inactivo = 'Activo';
 	 	}
 	 }
-			return $resultado;
-			}else{
-				return false;
-			}
+		return $resultado;
+		}else{
+			return false;
+		}
 	}
 
 	function eliminarComponente($id){

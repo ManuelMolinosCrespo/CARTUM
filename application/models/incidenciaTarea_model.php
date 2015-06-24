@@ -11,9 +11,33 @@ class IncidenciaTarea_model extends CI_Model {
 
 	public function editarIncidencia($datos){
 		//Actualizamos en funcion del id de la incidencia 
-		$this->db->where('idIncidencia',$datos['idIncidencia']);
-        $this->db->update('Incidencias', $datos); 
+		//Sacamos el id de la incidencia
+			//Realizamos la consulta de todos los datos
+      $this->db->select('idIncidencia_tareas');
+      $this->db->from('Tareas');
+      $this->db->where('idTareas',$datos['idTareas']);
+      $query= $this->db->get();	
+		if($query->num_rows()> 0){
+			$resultado = $query->result();
+			foreach ($resultado as $item) {
+				$idIncidencia = $item -> idIncidencia_tareas;
+			}
+		}
+		//Con el id de la incidencia saco el resumen
+		 $this->db->select('Resumen');
+      $this->db->from('Incidencias');
+      $this->db->where('idIncidencia',$idIncidencia);
+ 	   $query= $this->db->get();	
+		if($query->num_rows()> 0){
+			$resumenAntiguo = $query->result();
+			foreach ($resumenAntiguo as $item) {
+				$resumenAnt = $item -> Resumen;
+			}
+		$resumen = $resumenAnt. "  ". $datos['Resumen']; 
+		//Actualizamos el nuevo resumen
+		$query = $this->db->query("UPDATE Incidencias SET Resumen = '".$resumen."' WHERE idIncidencia =".$idIncidencia." "); 
 	}
+}
 
 	public function insertarIncidencia($datos,$id){
 		$this->db->insert('Incidencias',array('Fecha' => $datos['Fecha'], 'Resumen'=> $datos['Resumen']));
@@ -23,20 +47,26 @@ class IncidenciaTarea_model extends CI_Model {
 
 	public function obtenerIncidencia($id){
 		//Realizamos la consulta de todos los datos
-      $this->db->select('i.idIncidencia,i.Resumen');
-      $this->db->from('Incidencias i');
-      $this->db->join('Tareas t', 'i.idIncidencia = t.idIncidencia_tareas');
-      $this->db->where('idIncidencia',$id);
-
-      $query= $this->db->get();
-		
+      $this->db->select('idIncidencia_tareas');
+      $this->db->from('Tareas');
+      $this->db->where('idTareas',$id);
+      $query= $this->db->get();	
 		if($query->num_rows()> 0){
 			$resultado = $query->result();
-			
+			foreach ($resultado as $item) {
+				$idIncidencia = $item -> idIncidencia_tareas;
+			}
+	  $this->db->select('Resumen');
+      $this->db->from('Incidencias');
+      $this->db->where('idIncidencia',$idIncidencia);
+ 	   $query= $this->db->get();	
+		if($query->num_rows()> 0){
+			$resultado = $query->result();
 			return $resultado;
 		}else{
 				
 			return false;
 		}
+	}
 	}
 }
