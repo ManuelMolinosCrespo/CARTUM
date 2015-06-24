@@ -51,17 +51,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<?= form_label('Incidencia', 'incidencia')?>
 					<br>
 					<?php
+					
+					echo "<p><b>Incidencias anteriores</b></p>";
 						if(!empty($data)) {
+
 							foreach ($data as $item) {
-								$descripcion = '';
-					?>
-					<p><b>Incidencias anteriores</b></p>
-					<?= $item -> Resumen ?>
-					<br>
-					<br>
-					<p><b>Incidencia actual</b></p>
-					<br>
-					<?php
+								echo "<p><b>Incidencias anteriores</b></p>";
+								echo $item -> Resumen;
+								echo "<br> <br>	<p><b>Incidencia actual</b></p>	<br>";
+								$descripcion = '';			
 						}
 			        } else {
 			        	$descripcion = '';
