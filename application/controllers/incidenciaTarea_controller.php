@@ -36,6 +36,7 @@ public function recibirdatos(){
 	 	);
 		//Llamamos al modelo para insertarlos 
 	 	$this->incidenciaTarea_model->insertarIncidencia($datos,$datos['idTareas']);
+		$this->volverAnterior();
 	 }
 
 	public function obtenerdatos($id){
@@ -43,9 +44,9 @@ public function recibirdatos(){
 		 $data['data'] = $this->incidenciaTarea_model->obtenerIncidencia($id); 
 		 $this->load->view('incidenciaTarea',$data);
 	}	 
-	public function recibirdatos() {
+	public function volverAnterior() {
 		//Recogemos el id y lo pasamos al modelo
-		$id = $this->uri->segment(3);
+		$id =$this->session->userdata('idTareasIncidencias');
 		
 		//Llamamos al modelo 
 	 	$data['datos'] = $this->fichaTarea_model->obtenerFicha($id);
